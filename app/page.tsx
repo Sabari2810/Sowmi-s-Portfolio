@@ -398,6 +398,10 @@ export default function Home() {
               <div className="grid gap-3 sm:grid-cols-[6.5rem_1fr] sm:gap-4">
                 <dt className="label pt-1 font-semibold text-wine">Clients</dt>
                 <dd>
+                  <p className="mb-4 text-[0.82rem] leading-relaxed tracking-[0.03em]">
+                    Delivered projects for 20+ global enterprises and high-growth startups, including
+                    Accenture, PwC, Siemens, Renault, Willis Towers Watson, Colliers and BigID.
+                  </p>
                   <ul className="flex flex-wrap items-center gap-x-8 gap-y-5">
                     {clients.map((c) => (
                       <li key={c.name}>
