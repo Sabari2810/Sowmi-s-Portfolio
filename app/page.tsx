@@ -12,8 +12,9 @@ const contact = {
 const photo = {
   // Hero is a stock photo from Unsplash (their CDN), standing in until a real project photo is available.
   hero: "https://images.unsplash.com/photo-1792553532354-fe35685ae490?auto=format&fit=crop&w=1800&q=72",
-  parkCentre: "/images/park-centre.png",
-  vivera: "/images/vivera.png",
+  // Project photos are from WorkEZ's own website (workez.in).
+  parkCentre: "/images/park-centre.webp",
+  vivera: "/images/vivera.webp",
   portrait: "/images/sowmya.jpg",
 };
 
@@ -39,7 +40,7 @@ const projects = [
     facts: "~35,000 sq. ft. · 600+ seats · 4 floors",
     text: "Handled end-to-end, from design development and GFC documentation to consultant and vendor coordination, site resolution and execution. Also designed the cafeteria and pantry interiors.",
     src: photo.parkCentre,
-    alt: "Entrance view of WorkEZ Park Centre, with patterned floor and glazed reception",
+    alt: "Lounge at WorkEZ Park Centre with a curved sofa, timber wall and glass-block screens",
   },
   {
     title: "WorkEZ Vivera",
@@ -48,7 +49,7 @@ const projects = [
     facts: "~100,000 sq. ft. · 2,250+ seats · 3 floors",
     text: "Contributed to the end-to-end delivery of this premium managed office facility, covering GFC documentation, consultant and vendor coordination, design and site resolution, and execution.",
     src: photo.vivera,
-    alt: "Exterior of the WorkEZ Vivera building at dusk",
+    alt: "Reception at WorkEZ Vivera with a stone desk and the WorkEZ sign",
   },
 ];
 
@@ -212,7 +213,7 @@ export default function Home() {
                   src={p.src}
                   alt={p.alt}
                   loading="lazy"
-                  className="block aspect-[1.92/1] w-full object-cover object-[50%_25%] transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
+                  className="block aspect-[1.92/1] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
                 />
               </div>
               <h3 className="pt-3 font-serif text-[1.6rem] tracking-[-0.01em] text-wine">{p.title}</h3>
