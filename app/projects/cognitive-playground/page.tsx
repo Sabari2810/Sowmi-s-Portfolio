@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Carousel, { type Slide } from "@/components/Carousel";
+import DrawingCarousel, { type Drawing } from "@/components/DrawingCarousel";
 import Neural from "@/components/Neural";
 import Render, { type RenderImage } from "@/components/Render";
 
@@ -44,31 +44,13 @@ const renders: Record<string, RenderImage | undefined> = {
  * Files are in /public/images/cognitive-playground/derivations. 03 and 05 were PDFs and are
  * rendered to images with their empty page margins trimmed.
  */
-const derivations: Slide[] = [
-  {
-    caption: "Sketch 01",
-    images: [{ src: `${dir}/derivations/01.webp`, alt: "Charcoal sketch of a branching network of cells" }],
-  },
-  {
-    caption: "Sketch 02",
-    images: [{ src: `${dir}/derivations/02.webp`, alt: "Pen and pencil sketch of a branching network of cells" }],
-  },
-  {
-    caption: "Plan with circulation",
-    images: [{ src: `${dir}/derivations/03.webp`, alt: "Floor plan with the circulation paths shaded blue" }],
-  },
-  {
-    caption: "Plan with zones",
-    images: [{ src: `${dir}/derivations/04.webp`, alt: "Watercolour floor plan with each zone in a different colour" }],
-  },
-  {
-    caption: "Detailed plan",
-    images: [{ src: `${dir}/derivations/05.webp`, alt: "Floor plan with furniture layout and labelled spaces" }],
-  },
-  {
-    caption: "Top view",
-    images: [{ src: `${dir}/derivations/06.webp`, alt: "Top-down render of the whole floor" }],
-  },
+const derivations: Drawing[] = [
+  { caption: "Sketch 01", src: `${dir}/derivations/01.webp`, alt: "Charcoal sketch of a branching network of cells" },
+  { caption: "Sketch 02", src: `${dir}/derivations/02.webp`, alt: "Pen and pencil sketch of a branching network of cells" },
+  { caption: "Plan with circulation", src: `${dir}/derivations/03.webp`, alt: "Floor plan with the circulation paths shaded blue" },
+  { caption: "Plan with zones", src: `${dir}/derivations/04.webp`, alt: "Watercolour floor plan with each zone in a different colour" },
+  { caption: "Detailed plan", src: `${dir}/derivations/05.webp`, alt: "Floor plan with furniture layout and labelled spaces" },
+  { caption: "Top view", src: `${dir}/derivations/06.webp`, alt: "Top-down render of the whole floor" },
 ];
 
 /** Extra views under the Open Workspace. Add more here as needed. */
@@ -259,7 +241,7 @@ export default function CognitivePlayground() {
           </h2>
           <span className="rule mt-6" />
           <div className="mt-8 lg:mt-10">
-            <Carousel slides={derivations} label="Concept derivations" variant="drawing" />
+            <DrawingCarousel items={derivations} label="Concept derivations" />
           </div>
         </section>
 
@@ -407,11 +389,8 @@ export default function CognitivePlayground() {
       </main>
 
       {/* FOOTER */}
-      <footer className="gutter flex flex-col gap-6 pb-10 pt-2 sm:flex-row sm:items-center sm:gap-12">
-        <Link href="/" className="font-serif text-[1.65rem] font-medium leading-none tracking-[-0.01em] text-wine">
-          Sowmya.
-        </Link>
-        <span aria-hidden className="hidden h-px flex-1 bg-maroon/40 sm:block" />
+      <footer className="gutter flex flex-col gap-5 pb-10 pt-2 sm:flex-row sm:items-center sm:gap-12">
+        <span aria-hidden className="h-px w-full bg-maroon/40 sm:w-auto sm:flex-1" />
         <a href="mailto:ar.sowmya24@gmail.com" className="text-[0.8rem] tracking-[0.04em] hover:text-maroon">
           ar.sowmya24@gmail.com
         </a>

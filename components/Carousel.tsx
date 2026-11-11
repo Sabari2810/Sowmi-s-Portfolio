@@ -17,25 +17,10 @@ function Chevron({ flip = false }: { flip?: boolean }) {
   );
 }
 
-/**
- * Swipeable carousel with arrows, a counter and a caption per slide.
- *
- * variant "photo"   : wide frame, photos fill it (edges may be cropped).
- * variant "drawing" : taller frame, each image shown whole on a plain panel (plans, sketches),
- *                     with a link to open the full-size file.
- */
-export default function Carousel({
-  slides,
-  label,
-  variant = "photo",
-}: {
-  slides: Slide[];
-  label: string;
-  variant?: "photo" | "drawing";
-}) {
+/** Swipeable photo carousel with arrows, a counter and a caption per slide. */
+export default function Carousel({ slides, label }: { slides: Slide[]; label: string }) {
   const scroller = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
-  const drawing = variant === "drawing";
 
   const go = (i: number) => {
     const el = scroller.current;
@@ -47,9 +32,6 @@ export default function Carousel({
 
   const arrow =
     "absolute top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-cream/90 text-wine shadow-sm transition hover:bg-cream disabled:pointer-events-none disabled:opacity-0";
-
-  const frame = drawing ? "aspect-[4/5] sm:aspect-[16/10]" : "aspect-[1.92/1]";
-  const fit = drawing ? "object-contain p-3 sm:p-6" : "object-cover";
 
   return (
     <div>
@@ -76,16 +58,16 @@ export default function Carousel({
               role="group"
               aria-roledescription="slide"
               aria-label={`${i + 1} of ${slides.length}: ${s.caption}`}
-              className={`flex ${frame} w-full flex-none snap-center gap-1.5 bg-sand`}
+              className="flex aspect-[1.92/1] w-full flex-none snap-center gap-1.5 bg-sand"
             >
               {s.images.map((im) => (
-                // Each image fills its own box; absolute positioning avoids Safari's percentage-height quirks.
+                // Each photo fills its own box; absolute positioning avoids Safari's percentage-height quirks.
                 <div key={im.src} className="relative min-w-0 flex-1">
                   <img
                     src={im.src}
                     alt={im.alt}
                     loading={i === 0 ? "eager" : "lazy"}
-                    className={`absolute inset-0 block h-full w-full ${fit}`}
+                    className="absolute inset-0 block h-full w-full object-cover"
                   />
                 </div>
               ))}
@@ -93,10 +75,10 @@ export default function Carousel({
           ))}
         </div>
 
-        <button type="button" aria-label="Previous slide" disabled={index === 0} onClick={() => go(index - 1)} className={`${arrow} left-2.5`}>
+        <button type="button" aria-label="Previous photo" disabled={index === 0} onClick={() => go(index - 1)} className={`${arrow} left-2.5`}>
           <Chevron flip />
         </button>
-        <button type="button" aria-label="Next slide" disabled={index === slides.length - 1} onClick={() => go(index + 1)} className={`${arrow} right-2.5`}>
+        <button type="button" aria-label="Next photo" disabled={index === slides.length - 1} onClick={() => go(index + 1)} className={`${arrow} right-2.5`}>
           <Chevron />
         </button>
         <span className="pointer-events-none absolute bottom-2.5 right-2.5 rounded-full bg-wine px-3 py-1.5 text-xs font-medium tracking-[0.1em] text-white ring-1 ring-white/40 lining-nums">
@@ -104,28 +86,16 @@ export default function Carousel({
         </span>
       </div>
 
-      <div className="mt-3 flex items-start justify-between gap-4">
-        <div>
-          <p aria-live="polite" className="text-[0.78rem] italic tracking-[0.03em] text-ink/80">
-            {slides[index]?.caption}
-          </p>
-          {drawing && slides[index] && (
-            <a
-              href={slides[index].images[0].src}
-              target="_blank"
-              rel="noreferrer"
-              className="label mt-1.5 inline-block text-wine underline underline-offset-4 hover:text-maroon"
-            >
-              Open full size
-            </a>
-          )}
-        </div>
-        <div className="flex flex-none gap-1.5 pt-1.5">
+      <div className="mt-3 flex items-center justify-between gap-4">
+        <p aria-live="polite" className="text-[0.78rem] italic tracking-[0.03em] text-ink/80">
+          {slides[index]?.caption}
+        </p>
+        <div className="flex flex-none gap-1.5">
           {slides.map((s, i) => (
             <button
               key={s.caption}
               type="button"
-              aria-label={`Show slide ${i + 1}: ${s.caption}`}
+              aria-label={`Show photo ${i + 1}: ${s.caption}`}
               aria-current={i === index}
               onClick={() => go(i)}
               className={`h-1.5 rounded-full transition-all ${i === index ? "w-5 bg-maroon" : "w-1.5 bg-line hover:bg-maroon/50"}`}

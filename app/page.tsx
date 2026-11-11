@@ -9,7 +9,6 @@ import Neural from "@/components/Neural";
 
 const contact = {
   email: "ar.sowmya24@gmail.com",
-  location: "Chennai, India",
 };
 
 const photo = {
@@ -254,24 +253,10 @@ export default function Home() {
             </h2>
             <span className="rule mt-7" />
             <p className="body mt-7 max-w-[17rem] lg:max-w-[12rem]">
-              Managed workplace projects delivered with WorkEZ, and a research-led concept
-              project on the workplace and the mind.
+              A research-led concept project on the workplace and the mind, and managed
+              workplace projects delivered with WorkEZ.
             </p>
           </div>
-
-          {projects.map((p) => (
-            <article key={p.title} className="min-w-0 lg:pt-3">
-              <Carousel slides={p.slides} label={`${p.title} photos`} />
-              <h3 className="pt-4 font-serif text-[1.6rem] tracking-[-0.01em] text-wine">{p.title}</h3>
-              <p className="label mt-2.5 flex flex-wrap gap-x-4 gap-y-1 font-normal">
-                <span>{p.type}</span>
-                <span aria-hidden>/</span>
-                <span>{p.place}</span>
-              </p>
-              <p className="mt-3 text-[0.8rem] font-medium tracking-[0.03em] text-wine lining-nums">{p.facts}</p>
-              <p className="mt-2 max-w-[30rem] text-[0.8rem] leading-relaxed tracking-[0.03em]">{p.text}</p>
-            </article>
-          ))}
 
           {/* Concept project, opens its own project page */}
           <Link
@@ -312,6 +297,20 @@ export default function Home() {
               </span>
             </div>
           </Link>
+
+          {projects.map((p, i) => (
+            <article key={p.title} className={`min-w-0 lg:pt-3 ${i === 0 ? "lg:col-start-2" : ""}`}>
+              <Carousel slides={p.slides} label={`${p.title} photos`} />
+              <h3 className="pt-4 font-serif text-[1.6rem] tracking-[-0.01em] text-wine">{p.title}</h3>
+              <p className="label mt-2.5 flex flex-wrap gap-x-4 gap-y-1 font-normal">
+                <span>{p.type}</span>
+                <span aria-hidden>/</span>
+                <span>{p.place}</span>
+              </p>
+              <p className="mt-3 text-[0.8rem] font-medium tracking-[0.03em] text-wine lining-nums">{p.facts}</p>
+              <p className="mt-2 max-w-[30rem] text-[0.8rem] leading-relaxed tracking-[0.03em]">{p.text}</p>
+            </article>
+          ))}
         </section>
 
         {/* EXPERIENCE */}
@@ -449,20 +448,15 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <footer className="gutter flex flex-col gap-6 pb-10 pt-6 sm:flex-row sm:items-center sm:gap-12">
-        <Logo className="[&>span]:!text-[1.65rem]" />
-        <span aria-hidden className="hidden h-px flex-1 bg-maroon/40 sm:block" />
-        <div className="flex flex-col gap-3 text-[0.8rem] tracking-[0.04em] sm:flex-row sm:items-center sm:gap-8">
-          <a href={`mailto:${contact.email}`} className="flex items-center gap-3 hover:text-maroon">
-            <svg viewBox="0 0 20 16" aria-hidden className="h-3.5 w-[1.1rem]" fill="none" stroke="currentColor" strokeWidth="1.3">
-              <rect x="1" y="1" width="18" height="14" rx="1.5" />
-              <path d="M1.5 2l8.5 7 8.5-7" />
-            </svg>
-            {contact.email}
-          </a>
-          <span aria-hidden className="hidden h-4 w-px bg-ink/40 sm:block" />
-          <span>{contact.location}</span>
-        </div>
+      <footer className="gutter flex flex-col gap-5 pb-10 pt-6 sm:flex-row sm:items-center sm:gap-12">
+        <span aria-hidden className="h-px w-full bg-maroon/40 sm:w-auto sm:flex-1" />
+        <a href={`mailto:${contact.email}`} className="flex items-center gap-3 text-[0.8rem] tracking-[0.04em] hover:text-maroon">
+          <svg viewBox="0 0 20 16" aria-hidden className="h-3.5 w-[1.1rem]" fill="none" stroke="currentColor" strokeWidth="1.3">
+            <rect x="1" y="1" width="18" height="14" rx="1.5" />
+            <path d="M1.5 2l8.5 7 8.5-7" />
+          </svg>
+          {contact.email}
+        </a>
       </footer>
     </div>
   );
