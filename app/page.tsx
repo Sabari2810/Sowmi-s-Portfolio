@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
 import Carousel, { type Slide } from "@/components/Carousel";
+import Neural from "@/components/Neural";
 
 /* ------------------------------------------------------------------ */
 /* Content: taken from Sowmya's resume (2026). Edit here.             */
@@ -241,8 +243,8 @@ export default function Home() {
             </h2>
             <span className="rule mt-7" />
             <p className="body mt-7 max-w-[17rem] lg:max-w-[12rem]">
-              Managed workplace projects delivered with WorkEZ, from design development to
-              on-site execution.
+              Managed workplace projects delivered with WorkEZ, and a research-led concept
+              project on the workplace and the mind.
             </p>
           </div>
 
@@ -259,6 +261,42 @@ export default function Home() {
               <p className="mt-2 max-w-[30rem] text-[0.8rem] leading-relaxed tracking-[0.03em]">{p.text}</p>
             </article>
           ))}
+
+          {/* Concept project, opens its own case-study page */}
+          <Link
+            href="/projects/cognitive-playground"
+            className="group relative grid min-w-0 overflow-hidden border border-line transition-colors hover:border-maroon sm:grid-cols-[1.15fr_1fr] lg:col-span-2 lg:col-start-2"
+          >
+            <img
+              src="/images/cognitive-playground/reception-1.webp"
+              width={1920}
+              height={1080}
+              alt="Render of the Cognitive Playground reception"
+              loading="lazy"
+              className="block h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
+            />
+            <div className="relative flex flex-col justify-between gap-8 overflow-hidden px-6 py-7 sm:px-8">
+              <Neural className="pointer-events-none absolute -right-10 bottom-0 h-3/4 w-full text-maroon/10 transition-colors group-hover:text-maroon/25" />
+              <div className="relative">
+                <p className="label flex flex-wrap gap-x-4 gap-y-1 font-normal">
+                  <span>Concept project</span>
+                  <span aria-hidden>/</span>
+                  <span>Workplace design</span>
+                </p>
+                <h3 className="mt-4 font-serif text-[clamp(1.9rem,3vw,2.6rem)] leading-none tracking-[-0.01em] text-wine">
+                  Cognitive <em>Playground</em>
+                </h3>
+                <p className="mt-3 max-w-md text-[0.85rem] leading-relaxed tracking-[0.03em]">
+                  A Neuroscience-Inspired, Biomimetic Workplace. Circulation planned like a nervous
+                  system, with each zone keeping its own identity.
+                </p>
+              </div>
+              <span className="label relative inline-flex items-center gap-4 text-wine">
+                View case study
+                <Arrow className="transition-transform duration-300 group-hover:translate-x-1.5" />
+              </span>
+            </div>
+          </Link>
         </section>
 
         {/* EXPERIENCE */}
