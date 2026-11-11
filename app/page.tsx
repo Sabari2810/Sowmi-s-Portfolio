@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Carousel, { type Slide } from "@/components/Carousel";
 
 /* ------------------------------------------------------------------ */
 /* Content: taken from Sowmya's resume (2026). Edit here.             */
@@ -10,11 +11,8 @@ const contact = {
 };
 
 const photo = {
-  // Hero is a stock photo from Unsplash (their CDN), standing in until a real project photo is available.
-  hero: "https://images.unsplash.com/photo-1792553532354-fe35685ae490?auto=format&fit=crop&w=1800&q=72",
-  // Project photos are from WorkEZ's own website (workez.in).
-  parkCentre: "/images/park-centre.webp",
-  vivera: "/images/vivera.webp",
+  // Photos are from WorkEZ's own website (workez.in).
+  hero: "/images/park-centre/lounge.webp",
   portrait: "/images/sowmya.jpg",
 };
 
@@ -39,8 +37,28 @@ const projects = [
     place: "Alwarpet, Chennai",
     facts: "~35,000 sq. ft. · 600+ seats · 4 floors",
     text: "Handled end-to-end, from design development and GFC documentation to consultant and vendor coordination, site resolution and execution. Also designed the cafeteria and pantry interiors.",
-    src: photo.parkCentre,
-    alt: "Lounge at WorkEZ Park Centre with a curved sofa, timber wall and glass-block screens",
+    // Captions are a first reading of each photo; edit them to say what Sowmya wants to explain.
+    // The Park Centre lounge photo is used as the page's hero image, so it isn't repeated here.
+    slides: [
+      {
+        caption: "The building at dusk",
+        images: [{ src: "/images/park-centre/exterior.webp", alt: "Brick-clad WorkEZ Park Centre building lit at dusk" }],
+      },
+      {
+        caption: "Boardroom and cafeteria",
+        images: [
+          { src: "/images/park-centre/space-2.webp", alt: "Boardroom with a long timber table and cane-backed chairs" },
+          { src: "/images/park-centre/space-3.webp", alt: "Cafeteria with round tables, pendant lights and planting" },
+        ],
+      },
+      {
+        caption: "Waiting lounge and breakout seating",
+        images: [
+          { src: "/images/park-centre/space-1.webp", alt: "Waiting lounge with leather armchairs and a timber wall" },
+          { src: "/images/park-centre/space-4.webp", alt: "Breakout seating nook with small round tables" },
+        ],
+      },
+    ] satisfies Slide[],
   },
   {
     title: "WorkEZ Vivera",
@@ -48,8 +66,30 @@ const projects = [
     place: "Coimbatore",
     facts: "~100,000 sq. ft. · 2,250+ seats · 3 floors",
     text: "Contributed to the end-to-end delivery of this premium managed office facility, covering GFC documentation, consultant and vendor coordination, design and site resolution, and execution.",
-    src: photo.vivera,
-    alt: "Reception at WorkEZ Vivera with a stone desk and the WorkEZ sign",
+    slides: [
+      {
+        caption: "Reception",
+        images: [{ src: "/images/vivera/reception.webp", alt: "Reception with a stone desk and the WorkEZ sign" }],
+      },
+      {
+        caption: "The building",
+        images: [{ src: "/images/vivera/exterior.webp", alt: "WorkEZ Vivera building with blue glazed facade" }],
+      },
+      {
+        caption: "Lounge and window-side seating",
+        images: [
+          { src: "/images/vivera/space-1.webp", alt: "Lounge with a curved yellow sofa" },
+          { src: "/images/vivera/space-2.webp", alt: "Bar-height seating along a window with planting" },
+        ],
+      },
+      {
+        caption: "Meeting room and games area",
+        images: [
+          { src: "/images/vivera/space-3.webp", alt: "Meeting room with a long table and orange chairs" },
+          { src: "/images/vivera/space-4.png", alt: "Games area with a foosball table and pool table" },
+        ],
+      },
+    ] satisfies Slide[],
   },
 ];
 
@@ -163,7 +203,7 @@ export default function Home() {
             <div aria-hidden className="absolute bottom-0 right-0 top-[45%] w-[42%] bg-maroon lg:hidden" />
             <img
               src={photo.hero}
-              alt="Courtyard with a tree, concrete walls and terracotta benches"
+              alt="Lounge at WorkEZ Park Centre with a curved sofa, timber wall and glass-block screens"
               className="relative block aspect-[4/3] w-[calc(100%-1.5rem)] object-cover sm:w-[calc(100%-2.5rem)] lg:aspect-[1.74/1] lg:w-full"
             />
           </div>
@@ -207,16 +247,9 @@ export default function Home() {
           </div>
 
           {projects.map((p) => (
-            <article key={p.title} className="group lg:pt-3">
-              <div className="overflow-hidden">
-                <img
-                  src={p.src}
-                  alt={p.alt}
-                  loading="lazy"
-                  className="block aspect-[1.92/1] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
-                />
-              </div>
-              <h3 className="pt-3 font-serif text-[1.6rem] tracking-[-0.01em] text-wine">{p.title}</h3>
+            <article key={p.title} className="min-w-0 lg:pt-3">
+              <Carousel slides={p.slides} label={`${p.title} photos`} />
+              <h3 className="pt-4 font-serif text-[1.6rem] tracking-[-0.01em] text-wine">{p.title}</h3>
               <p className="label mt-2.5 flex flex-wrap gap-x-4 gap-y-1 font-normal">
                 <span>{p.type}</span>
                 <span aria-hidden>/</span>
