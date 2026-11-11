@@ -17,7 +17,7 @@ const photo = {
   hero: u("1792553532354-fe35685ae490", 1800),
   courtyardHouse: u("1711963224486-99a19022f305", 1200),
   studioRua: u("1721222201158-60ebe6d99ae2", 1200),
-  // Placeholder for Sowmi's portrait — replace with her photo.
+  // Placeholder for Sowmya's portrait — replace with her photo.
   portrait: u("1503387837-b154d5074bd2", 1200),
 };
 
@@ -30,7 +30,7 @@ const nav = [
 
 const overview = [
   { value: "10+", label: "Projects Completed", big: true },
-  { value: "4+", label: "Years of Practice", big: true },
+  { value: "5+", label: "Years of Practice", big: true },
   { value: "Residential, Workspace & Civic", label: "Project Typologies" },
   { value: "Context-Driven, People-Centred", label: "Design Approach." },
 ];
@@ -76,8 +76,8 @@ function Arrow({ className = "" }: { className?: string }) {
 
 function Logo({ className = "" }: { className?: string }) {
   return (
-    <a href="#top" aria-label="Sowmi — home" className={`font-serif text-[2rem] font-medium leading-none tracking-[-0.01em] text-wine ${className}`}>
-      Sowmi.
+    <a href="#top" aria-label="Sowmya — home" className={`font-serif text-[2rem] font-medium leading-none tracking-[-0.01em] text-wine ${className}`}>
+      Sowmya.
     </a>
   );
 }
@@ -267,7 +267,7 @@ export default function Home() {
             </h2>
             <span className="rule mt-6" />
             <p className="body mt-6">
-              I’m Sowmi, an architect and designer who believes that good design grows from
+              I’m Sowmya, an architect and designer who believes that good design grows from
               listening — to the site, its people, its histories and its everyday rhythms.
             </p>
             <p className="body mt-4">

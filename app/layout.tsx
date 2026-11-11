@@ -11,7 +11,7 @@ const serif = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Sowmi. — Architect / Designer",
+  title: "Sowmya. — Architect / Designer",
   description:
     "An architecture practice rooted in context, materiality and everyday life — creating spaces that are functional, sensitive and enduring.",
 };
