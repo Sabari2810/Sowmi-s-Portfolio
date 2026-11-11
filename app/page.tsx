@@ -26,7 +26,7 @@ const nav = [
 ];
 
 const overview = [
-  { value: "10+", label: "Projects Completed", big: true },
+  { value: "30+", label: "Projects Completed", big: true },
   { value: "5+", label: "Years of Practice", big: true },
   { value: "Workplace, Residential & Civic", label: "Project Typologies" },
   { value: "COA Registered Architect", label: "CA/2023/155850" },

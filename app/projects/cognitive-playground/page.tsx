@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Carousel, { type Slide } from "@/components/Carousel";
 import Neural from "@/components/Neural";
 import Render, { type RenderImage } from "@/components/Render";
 
@@ -36,6 +37,39 @@ const renders: Record<string, RenderImage | undefined> = {
 /* ------------------------------------------------------------------ */
 /* Content, as supplied by Sowmya. Nothing here is invented.           */
 /* ------------------------------------------------------------------ */
+
+/**
+ * Concept derivations: sketches and plans, in the order Sowmya numbered them (01 to 06).
+ * Captions simply describe what each image shows; edit them freely.
+ * Files are in /public/images/cognitive-playground/derivations. 03 and 05 were PDFs and are
+ * rendered to images with their empty page margins trimmed.
+ */
+const derivations: Slide[] = [
+  {
+    caption: "Sketch 01",
+    images: [{ src: `${dir}/derivations/01.webp`, alt: "Charcoal sketch of a branching network of cells" }],
+  },
+  {
+    caption: "Sketch 02",
+    images: [{ src: `${dir}/derivations/02.webp`, alt: "Pen and pencil sketch of a branching network of cells" }],
+  },
+  {
+    caption: "Plan with circulation",
+    images: [{ src: `${dir}/derivations/03.webp`, alt: "Floor plan with the circulation paths shaded blue" }],
+  },
+  {
+    caption: "Plan with zones",
+    images: [{ src: `${dir}/derivations/04.webp`, alt: "Watercolour floor plan with each zone in a different colour" }],
+  },
+  {
+    caption: "Detailed plan",
+    images: [{ src: `${dir}/derivations/05.webp`, alt: "Floor plan with furniture layout and labelled spaces" }],
+  },
+  {
+    caption: "Top view",
+    images: [{ src: `${dir}/derivations/06.webp`, alt: "Top-down render of the whole floor" }],
+  },
+];
 
 /** Extra views under the Open Workspace. Add more here as needed. */
 const workspaceViews = [
@@ -213,6 +247,18 @@ export default function CognitivePlayground() {
                 </li>
               ))}
             </ol>
+          </div>
+        </section>
+
+        {/* CONCEPT DERIVATIONS: sketches and plans, as a carousel */}
+        <section id="derivations" aria-labelledby="derivations-title" className="gutter scroll-mt-4 pb-16 lg:pb-24">
+          <p className="label font-semibold text-wine">Concept derivations</p>
+          <h2 id="derivations-title" className="display mt-5 text-[clamp(1.9rem,2.8vw,2.5rem)]">
+            From sketch <em>to plan</em>
+          </h2>
+          <span className="rule mt-6" />
+          <div className="mt-8 lg:mt-10">
+            <Carousel slides={derivations} label="Concept derivations" variant="drawing" />
           </div>
         </section>
 
