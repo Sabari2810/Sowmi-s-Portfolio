@@ -1,24 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 
 /* ------------------------------------------------------------------ */
-/* Content — edit here.                                                */
+/* Content — taken from Sowmya's resume (2026). Edit here.             */
 /* ------------------------------------------------------------------ */
 
 const contact = {
-  email: "sowmya.242000@gmail.com",
+  email: "ar.sowmya24@gmail.com",
+  location: "Chennai, India",
 };
 
-// Stock photos from Unsplash, loaded from their CDN, standing in for real photos.
+// Stock photos from Unsplash, loaded from their CDN, standing in for real project photos.
 // To use your own, put files in /public/images and change these to e.g. "/images/hero.jpg".
 const u = (id: string, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=72`;
 
 const photo = {
   hero: u("1792553532354-fe35685ae490", 1800),
-  courtyardHouse: u("1711963224486-99a19022f305", 1200),
-  studioRua: u("1721222201158-60ebe6d99ae2", 1200),
-  // Placeholder for Sowmya's portrait — replace with her photo.
-  portrait: u("1503387837-b154d5074bd2", 1200),
+  parkCentre: u("1765371515218-0a4c992ba8e2", 1200),
+  vivera: u("1700809888987-cf2b29ecbd2c", 1200),
+  portrait: "/images/sowmya.png",
 };
 
 const nav = [
@@ -31,37 +31,59 @@ const nav = [
 const overview = [
   { value: "10+", label: "Projects Completed", big: true },
   { value: "5+", label: "Years of Practice", big: true },
-  { value: "Residential, Workspace & Civic", label: "Project Typologies" },
-  { value: "Context-Driven, People-Centred", label: "Design Approach." },
+  { value: "Workplace, Residential & Civic", label: "Project Typologies" },
+  { value: "COA Registered Architect", label: "CA/2023/155850" },
 ];
 
 const projects = [
-  { title: "The Courtyard House", type: "Residential", year: "2024", src: photo.courtyardHouse, alt: "Courtyard with a brick wall and a tree" },
-  { title: "Studio Rua", type: "Workspace", year: "2023", src: photo.studioRua, alt: "Timber table and chairs beneath pendant lights" },
+  {
+    title: "WorkEZ Park Centre",
+    type: "Workplace",
+    place: "Alwarpet, Chennai",
+    facts: "~35,000 sq. ft. · 600+ seats · 4 floors",
+    text: "Handled end-to-end, from design development and GFC documentation to consultant and vendor coordination, site resolution and execution. Also designed the cafeteria and pantry interiors.",
+    src: photo.parkCentre,
+    alt: "Workplace interior with timber finishes and workstations",
+  },
+  {
+    title: "WorkEZ Vivera",
+    type: "Workplace",
+    place: "Coimbatore",
+    facts: "~100,000 sq. ft. · 2,250+ seats · 3 floors",
+    text: "Contributed to the end-to-end delivery of this premium managed office facility — GFC documentation, consultant and vendor coordination, design and site resolution, and execution.",
+    src: photo.vivera,
+    alt: "Bright open-plan office with planting",
+  },
 ];
 
 const experience = [
   {
-    when: "2023 – Present",
-    role: "Senior Architect",
-    firm: "Terrain Studio",
+    when: "Feb 2024 – Present",
+    role: "Executive Designer",
+    firm: "WorkEZ Space Solutions",
     city: "Chennai",
-    text: "Leading design and execution across residential and workspace projects.",
+    text: "Corporate workplace interiors — space planning, design development, GFC documentation and working drawings, coordinating clients, consultants, vendors and site teams through to execution.",
   },
   {
-    when: "2021 – 2023",
-    role: "Architect",
-    firm: "Studio Linear",
-    city: "Bengaluru",
-    text: "Worked on design development, documentation and site coordination for projects at multiple scales.",
-  },
-  {
-    when: "2019 – 2021",
+    when: "Oct 2022 – Jan 2024",
     role: "Junior Architect",
-    firm: "Arca Collective",
-    city: "Chennai",
-    text: "Assisted in design, drawings and project coordination across residential and civic works.",
+    firm: "GW Architects",
+    city: "Jamaica",
+    text: "Schematic and conceptual design, sketches and 3D perspectives, and full construction drawing sets in Vectorworks for projects including MBJ Airport, Spanish Town Hospital and Dundee Villa Development.",
   },
+  {
+    when: "2017 – 2022",
+    role: "Bachelor of Architecture",
+    firm: "Hindustan University",
+    city: "",
+    text: "Including a 2020 exchange semester at TH OWL University of Applied Sciences and Arts.",
+  },
+];
+
+const details = [
+  ["Clients", "PwC, Accenture, Tata Technologies, Psiog, Everstage, Bluepond AI"],
+  ["Software", "Revit, AutoCAD, Vectorworks, SketchUp, Photoshop, Lumion"],
+  ["Languages", "Tamil, English"],
 ];
 
 /* ------------------------------------------------------------------ */
@@ -110,10 +132,10 @@ export default function Home() {
           <div aria-hidden className="absolute bottom-0 right-0 top-[46%] hidden w-[26%] bg-maroon lg:block" />
 
           <div className="gutter relative pb-10 pt-10 lg:pb-16 lg:pl-[18.3%] lg:pr-0 lg:pt-[4.5rem]">
-            <p className="label flex gap-4 font-semibold text-wine">
+            <p className="label flex flex-wrap gap-x-4 gap-y-1 font-semibold text-wine">
               <span>Architect</span>
               <span aria-hidden>/</span>
-              <span>Designer</span>
+              <span>Interior &amp; Workplace Designer</span>
             </p>
             <h1 className="display mt-7 text-[clamp(3rem,4.2vw,4.4rem)] lg:whitespace-nowrap">
               Spaces for
@@ -121,9 +143,9 @@ export default function Home() {
               <em>People</em> and <em>Place</em>
             </h1>
             <span className="rule mt-8" />
-            <p className="body mt-8 max-w-[20rem]">
-              Designing architecture and interiors that respond to context, support everyday life
-              and create a lasting sense of belonging.
+            <p className="body mt-8 max-w-[21rem]">
+              Workplace interiors and architecture, taken from client brief and space planning
+              through detailed design, documentation and execution.
             </p>
             <a href="#projects" className="label group mt-10 inline-flex items-center gap-4 text-wine">
               Explore projects
@@ -173,8 +195,8 @@ export default function Home() {
             </h2>
             <span className="rule mt-7" />
             <p className="body mt-7 max-w-[17rem] lg:max-w-[12rem]">
-              A glimpse of work across different scales and contexts — from residences to public
-              and community spaces.
+              Managed workplace projects delivered with WorkEZ, from design development to
+              on-site execution.
             </p>
           </div>
 
@@ -188,17 +210,14 @@ export default function Home() {
                   className="block aspect-[1.92/1] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
                 />
               </div>
-              <div className="flex items-end justify-between gap-4 pt-3">
-                <div>
-                  <h3 className="font-serif text-[1.6rem] tracking-[-0.01em] text-wine">{p.title}</h3>
-                  <p className="label mt-2.5 flex gap-4 font-normal">
-                    <span>{p.type}</span>
-                    <span aria-hidden>/</span>
-                    <span>{p.year}</span>
-                  </p>
-                </div>
-                <Arrow className="mb-3 mr-2 text-wine transition-transform duration-300 group-hover:translate-x-1.5" />
-              </div>
+              <h3 className="pt-3 font-serif text-[1.6rem] tracking-[-0.01em] text-wine">{p.title}</h3>
+              <p className="label mt-2.5 flex flex-wrap gap-x-4 gap-y-1 font-normal">
+                <span>{p.type}</span>
+                <span aria-hidden>/</span>
+                <span>{p.place}</span>
+              </p>
+              <p className="mt-3 text-[0.8rem] font-medium tracking-[0.03em] text-wine lining-nums">{p.facts}</p>
+              <p className="mt-2 max-w-[30rem] text-[0.8rem] leading-relaxed tracking-[0.03em]">{p.text}</p>
             </article>
           ))}
         </section>
@@ -219,9 +238,9 @@ export default function Home() {
             {experience.map((e, i) => (
               <li
                 key={e.when}
-                className="grid grid-cols-[2rem_1fr] gap-x-4 pb-7 last:pb-0 lg:grid-cols-[8.5rem_3rem_1fr_1.25fr] lg:gap-x-5 lg:pb-6"
+                className="grid grid-cols-[2rem_1fr] gap-x-4 pb-7 last:pb-0 lg:grid-cols-[9.5rem_3rem_1fr_1.35fr] lg:gap-x-5 lg:pb-6"
               >
-                <p className="col-start-2 text-[0.78rem] tracking-[0.03em] text-wine lg:col-start-1 lg:row-start-1 lg:pl-[18%] lg:pt-1.5">
+                <p className="col-start-2 text-[0.78rem] tracking-[0.03em] text-wine lg:col-start-1 lg:row-start-1 lg:pl-[10%] lg:pt-1.5">
                   {e.when}
                 </p>
                 <div aria-hidden className="relative col-start-1 row-span-3 row-start-1 lg:col-start-2 lg:row-span-1">
@@ -234,11 +253,15 @@ export default function Home() {
                   <h3 className="font-serif text-[1.35rem] tracking-[-0.01em] text-wine">{e.role}</h3>
                   <p className="label mt-1 flex flex-wrap gap-x-4 font-normal">
                     <span>{e.firm}</span>
-                    <span aria-hidden>/</span>
-                    <span>{e.city}</span>
+                    {e.city && (
+                      <>
+                        <span aria-hidden>/</span>
+                        <span>{e.city}</span>
+                      </>
+                    )}
                   </p>
                 </div>
-                <p className="col-start-2 mt-2 text-[0.8rem] leading-relaxed tracking-[0.03em] lg:col-start-4 lg:row-start-1 lg:mt-0 lg:max-w-[19rem]">
+                <p className="col-start-2 mt-2 text-[0.8rem] leading-relaxed tracking-[0.03em] lg:col-start-4 lg:row-start-1 lg:mt-0 lg:max-w-[24rem]">
                   {e.text}
                 </p>
               </li>
@@ -251,12 +274,15 @@ export default function Home() {
           <div className="relative pb-4 pl-6 pr-6 sm:pl-10 sm:pr-10 lg:pb-[1.1rem] lg:pl-[14%] lg:pr-0">
             {/* maroon block behind the portrait's lower-left corner */}
             <div aria-hidden className="absolute bottom-0 left-0 top-[58%] w-[45%] bg-maroon sm:left-4 lg:left-[8.5%] lg:w-[33%]" />
-            <img
-              src={photo.portrait}
-              alt="Architect at work on a drawing"
-              loading="lazy"
-              className="relative block aspect-[1.44/1] w-full object-cover"
-            />
+            {/* The portrait has a white background; multiply blends it into the panel colour. */}
+            <div className="relative aspect-[1.3/1] overflow-hidden bg-[#e4ddd4]">
+              <img
+                src={photo.portrait}
+                alt="Portrait of Sowmya"
+                loading="lazy"
+                className="absolute left-1/2 top-[-22%] h-[160%] w-auto max-w-none -translate-x-1/2 mix-blend-multiply"
+              />
+            </div>
           </div>
           <div className="gutter lg:pl-[16%] lg:pr-[10%]">
             <p className="label font-semibold text-wine">About</p>
@@ -267,13 +293,23 @@ export default function Home() {
             </h2>
             <span className="rule mt-6" />
             <p className="body mt-6">
-              I’m Sowmya, an architect and designer who believes that good design grows from
-              listening — to the site, its people, its histories and its everyday rhythms.
+              I’m Sowmya, a Chennai-based architect and interior &amp; workplace designer,
+              registered with the Council of Architecture. My experience spans workplace
+              interiors, architectural design, technical documentation and project coordination.
             </p>
             <p className="body mt-4">
-              My work is an ongoing exploration of how spaces can be functional yet sensitive,
-              contemporary yet grounded, and above all, meaningful to the people who use them.
+              I work with corporate clients, consultants, vendors and site teams to turn
+              functional requirements into efficient, buildable and visually considered spaces —
+              where design thinking, technical detailing and execution meet.
             </p>
+            <dl className="mt-7 grid gap-3 border-t border-line pt-6">
+              {details.map(([k, v]) => (
+                <div key={k} className="grid gap-1 sm:grid-cols-[6.5rem_1fr] sm:gap-4">
+                  <dt className="label pt-0.5 font-semibold text-wine">{k}</dt>
+                  <dd className="text-[0.82rem] leading-relaxed tracking-[0.03em]">{v}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
       </main>
@@ -290,6 +326,8 @@ export default function Home() {
             </svg>
             {contact.email}
           </a>
+          <span aria-hidden className="hidden h-4 w-px bg-ink/40 sm:block" />
+          <span>{contact.location}</span>
         </div>
       </footer>
     </div>
