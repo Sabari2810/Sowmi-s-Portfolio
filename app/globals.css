@@ -1,56 +1,43 @@
 @import "tailwindcss";
 
-/* Design tokens — available as Tailwind utilities (bg-sheet, text-accent, font-display …) */
+/* Design tokens — available as Tailwind utilities (bg-cream, text-maroon, font-serif …) */
 @theme inline {
-  --color-backdrop: #dddbd8;
-  --color-sheet: #f2f1ef;
-  --color-ink: #141414;
-  --color-ink-soft: #5f5d5a;
-  --color-line: #bfbdb9;
-  --color-ghost: #dbd9d5;
-  --color-accent: #7d0a0a;
-  --color-maroon: #5c0d18;
-  --color-rose: #8f4a52;
+  --color-cream: #f6f2ed;
+  --color-sand: #ebe6df;
+  --color-maroon: #5e1a1e;
+  --color-wine: #4b1418;
+  --color-ink: #3a3432;
+  --color-line: #cfc6bd;
 
+  --font-serif: var(--font-serif-display), "Cormorant Garamond", Georgia, serif;
   --font-sans: var(--font-jost), "Century Gothic", "Helvetica Neue", Arial, sans-serif;
-  --font-display: var(--font-spartan), "Century Gothic", Arial, sans-serif;
-  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
-  --font-ghost: var(--font-playfair), "Bodoni MT", Didot, Georgia, serif;
 }
 
 @layer base {
   :focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 3px;
+    outline: 2px solid var(--color-maroon);
+    outline-offset: 4px;
   }
 }
 
 @layer components {
-  /* One portfolio page: a landscape sheet on desktop, a normal stacked block on phones */
-  .sheet {
-    @apply relative mx-auto w-full max-w-[1100px] overflow-hidden bg-sheet shadow-[0_22px_44px_-22px_rgba(0,0,0,0.5)] lg:aspect-[1.42/1];
+  /* Page side padding, matching the mockup's left margin */
+  .gutter {
+    @apply px-6 sm:px-10 lg:px-[6.6%];
   }
-  /* Fills the sheet on desktop */
-  .fill {
-    @apply lg:absolute lg:inset-0;
+  /* Small spaced uppercase label */
+  .label {
+    @apply text-[0.68rem] font-medium uppercase tracking-[0.22em];
   }
-  /* Bold sheet title, top-left */
-  .sheet-title {
-    @apply font-display text-[1.35rem] font-bold uppercase leading-[1.15] tracking-[0.01em] lg:text-[1.65rem];
+  /* Serif display heading */
+  .display {
+    @apply font-serif font-medium leading-[1.02] tracking-[-0.01em] text-wine;
   }
-  /* Pale page number, top-right */
-  .ghost {
-    @apply font-ghost text-5xl leading-none text-ghost select-none lg:text-7xl;
+  /* Short accent rule under headings */
+  .rule {
+    @apply block h-px w-7 bg-maroon;
   }
-  /* Small justified body copy, as on a printed sheet */
-  .copy {
-    @apply text-[0.8rem] leading-relaxed text-ink-soft lg:text-justify;
-  }
-  /* Tiny breadcrumb / caption */
-  .crumb {
-    @apply text-[0.6rem] font-medium uppercase tracking-[0.18em];
-  }
-  .meta {
-    @apply text-[0.72rem] leading-relaxed text-ink-soft;
+  .body {
+    @apply text-[0.9rem] leading-[1.75] tracking-[0.02em];
   }
 }
