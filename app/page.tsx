@@ -9,16 +9,12 @@ const contact = {
   location: "Chennai, India",
 };
 
-// Stock photos from Unsplash, loaded from their CDN, standing in for real project photos.
-// To use your own, put files in /public/images and change these to e.g. "/images/hero.jpg".
-const u = (id: string, w = 1600) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=72`;
-
 const photo = {
-  hero: u("1792553532354-fe35685ae490", 1800),
+  // Hero is a stock photo from Unsplash (their CDN), standing in until a real project photo is available.
+  hero: "https://images.unsplash.com/photo-1792553532354-fe35685ae490?auto=format&fit=crop&w=1800&q=72",
   parkCentre: "/images/park-centre.png",
   vivera: "/images/vivera.png",
-  portrait: "/images/sowmya.png",
+  portrait: "/images/sowmya.jpg",
 };
 
 const nav = [
@@ -85,15 +81,14 @@ const details = [
   ["Languages", "Tamil, English"],
 ];
 
-// Icons are from the Simple Icons set (files in /public/icons). Lumion has no icon
-// in that set, so it shows a lettered tile; drop a lumion.svg in and set `icon` to use one.
-const software: { name: string; color: string; icon?: string }[] = [
-  { name: "Revit", color: "#186BFF", icon: "/icons/autodeskrevit.svg" },
-  { name: "AutoCAD", color: "#E51050", icon: "/icons/autocad.svg" },
-  { name: "Vectorworks", color: "#1a1a1a", icon: "/icons/vectorworks.svg" },
-  { name: "SketchUp", color: "#005F9E", icon: "/icons/sketchup.svg" },
-  { name: "Photoshop", color: "#31A8FF", icon: "/icons/adobephotoshop.svg" },
-  { name: "Lumion", color: "#1a1a1a" },
+// Icons are the ones used in her resume (files in /public/icons).
+const software: { name: string; icon: string }[] = [
+  { name: "Revit", icon: "/icons/revit.png" },
+  { name: "AutoCAD", icon: "/icons/autocad.png" },
+  { name: "Vectorworks", icon: "/icons/vectorworks.png" },
+  { name: "SketchUp", icon: "/icons/sketchup.png" },
+  { name: "Photoshop", icon: "/icons/photoshop.png" },
+  { name: "Lumion", icon: "/icons/lumion.png" },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -325,26 +320,15 @@ export default function Home() {
                   <ul className="flex flex-wrap gap-x-6 gap-y-4">
                     {software.map((s) => (
                       <li key={s.name} className="flex w-[3.6rem] flex-col items-center gap-2 text-center">
-                        {s.icon ? (
-                          // The SVG is used as a mask and filled with the brand colour.
-                          <span
-                            aria-hidden
-                            className="block h-9 w-9"
-                            style={{
-                              backgroundColor: s.color,
-                              mask: `url(${s.icon}) center / contain no-repeat`,
-                              WebkitMask: `url(${s.icon}) center / contain no-repeat`,
-                            }}
-                          />
-                        ) : (
-                          <span
-                            aria-hidden
-                            className="flex h-9 w-9 items-center justify-center rounded-[5px] text-[0.85rem] font-semibold tracking-normal text-cream"
-                            style={{ backgroundColor: s.color }}
-                          >
-                            {s.name.slice(0, 2)}
-                          </span>
-                        )}
+                        {/* The icon is used as a mask so every logo takes the same wine colour. */}
+                        <span
+                          aria-hidden
+                          className="block h-10 w-10 bg-wine"
+                          style={{
+                            mask: `url(${s.icon}) center / contain no-repeat`,
+                            WebkitMask: `url(${s.icon}) center / contain no-repeat`,
+                          }}
+                        />
                         <span className="text-[0.62rem] uppercase leading-tight tracking-[0.1em]">{s.name}</span>
                       </li>
                     ))}
