@@ -87,13 +87,13 @@ const details = [
 
 // Icons are from the Simple Icons set (files in /public/icons). Lumion has no icon
 // in that set, so it shows a lettered tile; drop a lumion.svg in and set `icon` to use one.
-const software: { name: string; icon?: string }[] = [
-  { name: "Revit", icon: "/icons/autodeskrevit.svg" },
-  { name: "AutoCAD", icon: "/icons/autocad.svg" },
-  { name: "Vectorworks", icon: "/icons/vectorworks.svg" },
-  { name: "SketchUp", icon: "/icons/sketchup.svg" },
-  { name: "Photoshop", icon: "/icons/adobephotoshop.svg" },
-  { name: "Lumion" },
+const software: { name: string; color: string; icon?: string }[] = [
+  { name: "Revit", color: "#186BFF", icon: "/icons/autodeskrevit.svg" },
+  { name: "AutoCAD", color: "#E51050", icon: "/icons/autocad.svg" },
+  { name: "Vectorworks", color: "#1a1a1a", icon: "/icons/vectorworks.svg" },
+  { name: "SketchUp", color: "#005F9E", icon: "/icons/sketchup.svg" },
+  { name: "Photoshop", color: "#31A8FF", icon: "/icons/adobephotoshop.svg" },
+  { name: "Lumion", color: "#1a1a1a" },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -326,11 +326,12 @@ export default function Home() {
                     {software.map((s) => (
                       <li key={s.name} className="flex w-[3.6rem] flex-col items-center gap-2 text-center">
                         {s.icon ? (
-                          // The SVG is used as a mask so the icon takes the site's wine colour.
+                          // The SVG is used as a mask and filled with the brand colour.
                           <span
                             aria-hidden
-                            className="block h-8 w-8 bg-wine"
+                            className="block h-9 w-9"
                             style={{
+                              backgroundColor: s.color,
                               mask: `url(${s.icon}) center / contain no-repeat`,
                               WebkitMask: `url(${s.icon}) center / contain no-repeat`,
                             }}
@@ -338,7 +339,8 @@ export default function Home() {
                         ) : (
                           <span
                             aria-hidden
-                            className="flex h-8 w-8 items-center justify-center rounded-[5px] bg-wine text-[0.8rem] font-semibold tracking-normal text-cream"
+                            className="flex h-9 w-9 items-center justify-center rounded-[5px] text-[0.85rem] font-semibold tracking-normal text-cream"
+                            style={{ backgroundColor: s.color }}
                           >
                             {s.name.slice(0, 2)}
                           </span>
