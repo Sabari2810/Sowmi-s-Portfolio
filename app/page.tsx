@@ -14,7 +14,7 @@ const contact = {
 const photo = {
   // Photos are from WorkEZ's own website (workez.in).
   hero: "/images/park-centre/lounge.webp",
-  portrait: "/images/sowmya.jpg",
+  portrait: "/images/sowmya-portrait.jpg",
 };
 
 const nav = [
