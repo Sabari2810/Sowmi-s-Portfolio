@@ -1,21 +1,24 @@
 @import "tailwindcss";
 
-/* Design tokens — available as Tailwind utilities (bg-paper, text-accent, font-serif …) */
+/* Design tokens — available as Tailwind utilities (bg-sheet, text-accent, font-display …) */
 @theme inline {
-  --color-paper: #f4f3f1;
-  --color-ink: #151515;
-  --color-ink-soft: #6f6d6a;
-  --color-line: #d6d4d0;
-  --color-accent: #7b0d0d;
+  --color-backdrop: #dddbd8;
+  --color-sheet: #f2f1ef;
+  --color-ink: #141414;
+  --color-ink-soft: #5f5d5a;
+  --color-line: #bfbdb9;
+  --color-ghost: #dbd9d5;
+  --color-accent: #7d0a0a;
+  --color-maroon: #5c0d18;
+  --color-rose: #8f4a52;
 
-  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   --font-sans: var(--font-jost), "Century Gothic", "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-spartan), "Century Gothic", Arial, sans-serif;
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-ghost: var(--font-playfair), "Bodoni MT", Didot, Georgia, serif;
 }
 
 @layer base {
-  button {
-    cursor: pointer;
-  }
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;
@@ -23,16 +26,31 @@
 }
 
 @layer components {
-  /* Page width and side padding */
-  .wrap {
-    @apply mx-auto w-full max-w-6xl px-5 md:px-10;
+  /* One portfolio page: a landscape sheet on desktop, a normal stacked block on phones */
+  .sheet {
+    @apply relative mx-auto w-full max-w-[1100px] overflow-hidden bg-sheet shadow-[0_22px_44px_-22px_rgba(0,0,0,0.5)] lg:aspect-[1.42/1];
   }
-  /* Small uppercase label */
-  .label {
-    @apply text-[0.7rem] uppercase tracking-[0.16em] text-ink-soft;
+  /* Fills the sheet on desktop */
+  .fill {
+    @apply lg:absolute lg:inset-0;
   }
-  /* Section heading */
-  .title {
-    @apply text-xl font-semibold uppercase tracking-[0.06em] md:text-2xl;
+  /* Bold sheet title, top-left */
+  .sheet-title {
+    @apply font-display text-[1.35rem] font-bold uppercase leading-[1.15] tracking-[0.01em] lg:text-[1.65rem];
+  }
+  /* Pale page number, top-right */
+  .ghost {
+    @apply font-ghost text-5xl leading-none text-ghost select-none lg:text-7xl;
+  }
+  /* Small justified body copy, as on a printed sheet */
+  .copy {
+    @apply text-[0.8rem] leading-relaxed text-ink-soft lg:text-justify;
+  }
+  /* Tiny breadcrumb / caption */
+  .crumb {
+    @apply text-[0.6rem] font-medium uppercase tracking-[0.18em];
+  }
+  .meta {
+    @apply text-[0.72rem] leading-relaxed text-ink-soft;
   }
 }
