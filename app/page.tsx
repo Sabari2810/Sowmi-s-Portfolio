@@ -262,7 +262,7 @@ export default function Home() {
             </article>
           ))}
 
-          {/* Concept project, opens its own case-study page */}
+          {/* Concept project, opens its own project page */}
           <Link
             href="/projects/cognitive-playground"
             className="group relative grid min-w-0 overflow-hidden border border-line transition-colors hover:border-maroon sm:grid-cols-[1.15fr_1fr] lg:col-span-2 lg:col-start-2"
@@ -292,7 +292,7 @@ export default function Home() {
                 </p>
               </div>
               <span className="label relative inline-flex items-center gap-4 text-wine">
-                View case study
+                View project
                 <Arrow className="transition-transform duration-300 group-hover:translate-x-1.5" />
               </span>
             </div>
