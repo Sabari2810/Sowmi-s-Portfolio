@@ -1,109 +1,92 @@
 // Edit this file to change the portfolio.
 // Each project's illustration lives in components/ProjectArt.tsx, keyed by `slug`.
-
-export type Category = "residential" | "public" | "cultural" | "workplace";
+// All entries below are placeholders — replace them with real projects.
 
 export type Project = {
   slug: string;
   title: string;
-  cat: Category;
-  type: string;
-  location: string;
+  kind: string;
+  place: string;
   year: string;
-  area: string;
-  status: string;
+  role: string;
+  tools: string;
   blurb: string;
   text: string;
   alt: string;
 };
 
-export const categories: { id: Category | "all"; label: string }[] = [
-  { id: "all", label: "All" },
-  { id: "residential", label: "Residential" },
-  { id: "public", label: "Public" },
-  { id: "cultural", label: "Cultural" },
-  { id: "workplace", label: "Workplace" },
-];
-
 export const projects: Project[] = [
   {
-    slug: "halden-house",
-    title: "Halden House",
-    cat: "residential",
-    type: "Private residence",
-    location: "North coast",
-    year: "2025",
-    area: "310 m²",
-    status: "Completed",
-    blurb:
-      "A single long roof floats over a glazed living room, framing the horizon like a drawn line.",
-    text: "Set low behind the dunes, the house is organised as one continuous room beneath a cantilevered concrete canopy. Rammed-earth walls hold the bedrooms to the north, while the south opens entirely to the sea. Deep eaves shade the glass in summer and admit low winter sun.",
-    alt: "Illustration of a low house with a long flat roof at sunset",
-  },
-  {
-    slug: "kiln-court-library",
-    title: "Kiln Court Library",
-    cat: "public",
-    type: "Public library",
-    location: "Old brickworks quarter",
+    slug: "courtyard-museum",
+    title: "Courtyard Museum",
+    kind: "Graduation project",
+    place: "Old town quarter",
     year: "2024",
-    area: "2,400 m²",
-    status: "Completed",
-    blurb: "A brick arcade turns a neighbourhood library into a covered street.",
-    text: "Built on the footprint of a demolished kiln, the library reuses 60,000 reclaimed bricks. A deep arcade shelters the entrance and a weekly market; inside, a timber reading room rises three storeys beneath a north-facing rooflight.",
-    alt: "Illustration of a brick building with four tall arches",
-  },
-  {
-    slug: "terrace-nine",
-    title: "Terrace Nine",
-    cat: "residential",
-    type: "Housing — nine homes",
-    location: "Hillside infill site",
-    year: "2023",
-    area: "1,150 m²",
-    status: "Completed",
+    role: "Individual thesis",
+    tools: "Revit, 3ds Max, Photoshop",
     blurb:
-      "Nine stepped homes, each with its own roof garden and a view over the one below.",
-    text: "A steep, overlooked plot became an advantage: the section steps with the slope so every home gains a south-facing terrace on its neighbour’s roof. Lime-rendered walls and shared stairs give the scheme the feel of a small hill village.",
-    alt: "Illustration of white stepped terrace housing",
+      "A white gallery volume slips beside a brick warehouse, sharing one public courtyard.",
+    text: "The thesis asks how a new cultural building can sit next to heritage fabric without imitating it. A glazed ground floor keeps the courtyard visible from the street, while the galleries float above on a single long beam.",
+    alt: "Illustration of a white glazed gallery beside a red brick building",
   },
   {
-    slug: "saltworks-pavilion",
-    title: "Saltworks Pavilion",
-    cat: "cultural",
-    type: "Exhibition pavilion",
-    location: "Tidal estuary",
+    slug: "weavers-library",
+    title: "Weavers’ Library",
+    kind: "Competition entry — second prize",
+    place: "Textile district",
     year: "2023",
-    area: "420 m²",
-    status: "Completed",
-    blurb: "A black timber roof on slender columns, doubled by the water it stands in.",
-    text: "A seasonal gallery for a coastal arts trust, raised on screw piles above the salt marsh. The charred-larch roof is a single folded plane; walls are sliding screens that open the whole room to the tide.",
-    alt: "Illustration of a pitched-roof pavilion reflected in water",
+    role: "Team of three — design lead",
+    tools: "AutoCAD, SketchUp, V-Ray",
+    blurb: "A neighbourhood library with deep square windows that read like a loom.",
+    text: "A compact reading tower for a weaving community. Deep reveals shade the glass and turn every window into a seat. The ground floor opens fully to a shared working yard.",
+    alt: "Illustration of a white cubic library with deep square windows",
   },
   {
-    slug: "orchard-studio",
-    title: "Orchard Studio",
-    cat: "workplace",
-    type: "Workshop & offices",
-    location: "Former fruit farm",
+    slug: "brick-house",
+    title: "Brick House Renovation",
+    kind: "Freelance — residential",
+    place: "Suburban plot",
+    year: "2025",
+    role: "Concept to working drawings",
+    tools: "AutoCAD, SketchUp, Lumion",
+    blurb: "An old gabled house kept intact, with a light white living room added to the garden.",
+    text: "The clients wanted more daylight without losing the character of the family home. The existing brick shell was repaired and a single-storey glazed extension added, connected by a top-lit passage.",
+    alt: "Illustration of a red brick gabled house with a white glazed extension",
+  },
+  {
+    slug: "terrace-housing",
+    title: "Terrace Housing",
+    kind: "Design studio — semester 7",
+    place: "Hillside site",
     year: "2022",
-    area: "860 m²",
-    status: "Completed",
-    blurb: "A sawtooth roof brings even north light to a furniture maker’s workshop.",
-    text: "A working building for a team of twenty makers. The timber frame was prefabricated in the client’s previous workshop and raised in eleven days. Rooflights face north for drawing-board light; photovoltaics cover every south-facing slope.",
-    alt: "Illustration of a workshop with a sawtooth roof and lit windows",
+    role: "Individual studio project",
+    tools: "Revit, Enscape, InDesign",
+    blurb: "Stepped homes where every roof becomes the terrace of the home above.",
+    text: "A housing study for a steep site. The section steps with the slope so each unit gains a private terrace and cross ventilation, with a shared brick stair tower tying the levels together.",
+    alt: "Illustration of stepped white housing with a brick stair tower",
   },
   {
-    slug: "north-quay-chapel",
-    title: "North Quay Chapel",
-    cat: "cultural",
-    type: "Chapel & community room",
-    location: "Harbour edge",
-    year: "2021",
-    area: "240 m²",
-    status: "Completed",
-    blurb: "A pale tower with a single slot of light — a lantern for the quay at night.",
-    text: "A non-denominational space for a harbour community. Inside, a board-marked concrete room is lit only from above and through one tall slit, so the mood shifts hour by hour with the weather.",
-    alt: "Illustration of a pale chapel tower at night with a glowing slit window",
+    slug: "market-pavilion",
+    title: "Market Pavilion",
+    kind: "Competition entry — shortlisted",
+    place: "Town square",
+    year: "2022",
+    role: "Team of two",
+    tools: "Rhino, AutoCAD, Illustrator",
+    blurb: "One thin roof on slender columns, giving a weekly market permanent shade.",
+    text: "A lightweight canopy set against an existing brick wall. Stalls plug into a regular column grid, and the roof collects rainwater for the square’s planting.",
+    alt: "Illustration of a thin white canopy on columns in front of a brick wall",
+  },
+  {
+    slug: "studio-interior",
+    title: "Studio Apartment",
+    kind: "Freelance — interior",
+    place: "City apartment",
+    year: "2025",
+    role: "Interior design & site supervision",
+    tools: "SketchUp, V-Ray, AutoCAD",
+    blurb: "A 45 m² apartment organised around one timber wall that hides all the storage.",
+    text: "A compact interior for a young professional. A full-height slatted timber wall conceals wardrobe, kitchen appliances and a fold-down desk, leaving the rest of the room calm and open.",
+    alt: "Illustration of an interior with a timber slat wall, sofa and pendant lamp",
   },
 ];

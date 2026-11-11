@@ -1,38 +1,38 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Inter_Tight } from "next/font/google";
+import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
 
-const serif = Instrument_Serif({
-  weight: "400",
+const serif = Cormorant_Garamond({
+  weight: ["300", "400", "500"],
   style: ["normal", "italic"],
   subsets: ["latin"],
-  variable: "--font-instrument",
+  variable: "--font-cormorant",
 });
 
-const sans = Inter_Tight({
+const sans = Jost({
   subsets: ["latin"],
-  variable: "--font-inter-tight",
+  variable: "--font-jost",
 });
 
 export const metadata: Metadata = {
-  title: "Nora Halden — Architect",
+  title: "Sowmya — Architecture Portfolio",
   description:
-    "Nora Halden Architecture — residential, public and cultural buildings shaped by site, light and material.",
+    "Architecture portfolio of Sowmya — academic, competition and freelance work, drawings, site analysis and material studies.",
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f3efe8",
+  themeColor: "#f4f3f1",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${serif.variable} ${sans.variable} scroll-pt-20 scroll-smooth motion-reduce:scroll-auto`}
+      className={`${serif.variable} ${sans.variable} scroll-smooth motion-reduce:scroll-auto`}
     >
-      <body className="overflow-x-hidden bg-paper font-sans text-base leading-relaxed text-ink antialiased md:text-[17px]">
+      <body className="overflow-x-hidden bg-paper font-sans text-base leading-relaxed text-ink antialiased">
         {children}
       </body>
     </html>
