@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* Design tokens — available as Tailwind utilities (bg-paper, text-ink, font-serif …) */
+@theme inline {
+  --color-paper: #f3efe8;
+  --color-paper-2: #e9e3d8;
+  --color-ink: #1b1a17;
+  --color-ink-soft: #5d5950;
+  --color-line: #cfc8ba;
+  --color-accent: #b5532a;
+
+  --font-serif: var(--font-instrument), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-inter-tight), "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.02;
+  }
+  h1 em,
+  h2 em {
+    color: var(--color-accent);
+  }
+  button {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.14em] text-ink-soft;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full border border-ink px-6 py-3.5 text-sm font-medium tracking-wide transition-colors duration-200;
+  }
+  .btn-solid {
+    @apply bg-ink text-paper hover:border-accent hover:bg-accent;
+  }
+  .btn-line {
+    @apply hover:bg-ink hover:text-paper;
+  }
+  .section {
+    @apply px-5 py-20 md:px-10 md:py-28 lg:px-16 lg:py-36;
+  }
+}
