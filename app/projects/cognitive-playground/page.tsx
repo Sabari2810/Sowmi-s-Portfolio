@@ -101,9 +101,10 @@ const spaces = [
   {
     key: "focus" as const,
     name: "Focus Zone",
-    heading: "Focus Zone",
-    // No description supplied yet: add one here as `text: "..."` and it will appear.
-    text: "",
+    heading: "Quiet within the open plan",
+    // Wording written from the render and the project's idea of zones that stay visually connected.
+    // Replace with Sowmya's own description if she prefers.
+    text: "A zone for focused work within the open plan. Semi-enclosed booths with arched openings and perforated screens give each person a sense of separation, while the zone stays visually connected to the rest of the workspace.",
   },
   {
     key: "fitness" as const,

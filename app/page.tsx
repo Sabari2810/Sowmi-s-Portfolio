@@ -121,7 +121,6 @@ const experience = [
 
 const details = [
   ["Clients", "PwC, Accenture, Tata Technologies, Psiog, Everstage, Bluepond AI"],
-  ["Languages", "Tamil, English"],
 ];
 
 // Icons are the ones used in her resume (files in /public/icons).
