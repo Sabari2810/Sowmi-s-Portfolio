@@ -118,12 +118,18 @@ const experience = [
   },
 ];
 
-// Client logos (files in /public/icons/clients), shown as plain wine silhouettes.
+// Client logos (files in /public/icons/clients), shown as plain wine silhouettes, in the same order
+// as the names in the sentence above them. Keep the two in step: every name has a logo and vice versa.
+// BigID shows its icon, not its wordmark. The Tata emblem stands in for Tata Technologies.
 // w and h are the file's pixel size; `show` is the height they are displayed at, in px.
-// The Tata emblem stands in for Tata Technologies' own logo.
 const clients: { name: string; icon: string; w: number; h: number; show: number }[] = [
-  { name: "PwC", icon: "/icons/clients/pwc.png", w: 168, h: 82, show: 30 },
   { name: "Accenture", icon: "/icons/clients/accenture.png", w: 228, h: 240, show: 26 },
+  { name: "PwC", icon: "/icons/clients/pwc.png", w: 168, h: 82, show: 30 },
+  { name: "Siemens", icon: "/icons/clients/siemens.png", w: 240, h: 40, show: 15 },
+  { name: "Renault", icon: "/icons/clients/renault.png", w: 182, h: 240, show: 32 },
+  { name: "Willis Towers Watson", icon: "/icons/clients/wtw.png", w: 499, h: 164, show: 24 },
+  { name: "Colliers", icon: "/icons/clients/colliers.png", w: 620, h: 150, show: 22 },
+  { name: "BigID", icon: "/icons/clients/bigid.png", w: 225, h: 227, show: 30 },
   { name: "Tata Technologies", icon: "/icons/clients/tata.png", w: 240, h: 162, show: 28 },
   { name: "Psiog", icon: "/icons/clients/psiog.png", w: 844, h: 238, show: 26 },
   { name: "Everstage", icon: "/icons/clients/everstage.png", w: 1198, h: 228, show: 20 },
@@ -399,7 +405,7 @@ export default function Home() {
                 <dd>
                   <p className="mb-4 text-[0.82rem] leading-relaxed tracking-[0.03em]">
                     Delivered projects for 20+ global enterprises and high-growth startups, including
-                    Accenture, PwC, Siemens, Renault, Willis Towers Watson, Colliers and BigID.
+                    Accenture, PwC, Siemens, Renault, Willis Towers Watson, Colliers, BigID, Tata Technologies, Psiog, Everstage and Bluepond AI.
                   </p>
                   <ul className="flex flex-wrap items-center gap-x-8 gap-y-5">
                     {clients.map((c) => (
