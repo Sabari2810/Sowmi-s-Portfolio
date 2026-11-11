@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 /* ------------------------------------------------------------------ */
-/* Content — taken from Sowmya's resume (2026). Edit here.             */
+/* Content: taken from Sowmya's resume (2026). Edit here.             */
 /* ------------------------------------------------------------------ */
 
 const contact = {
@@ -16,8 +16,8 @@ const u = (id: string, w = 1600) =>
 
 const photo = {
   hero: u("1792553532354-fe35685ae490", 1800),
-  parkCentre: u("1765371515218-0a4c992ba8e2", 1200),
-  vivera: u("1700809888987-cf2b29ecbd2c", 1200),
+  parkCentre: "/images/park-centre.png",
+  vivera: "/images/vivera.png",
   portrait: "/images/sowmya.png",
 };
 
@@ -43,16 +43,16 @@ const projects = [
     facts: "~35,000 sq. ft. · 600+ seats · 4 floors",
     text: "Handled end-to-end, from design development and GFC documentation to consultant and vendor coordination, site resolution and execution. Also designed the cafeteria and pantry interiors.",
     src: photo.parkCentre,
-    alt: "Workplace interior with timber finishes and workstations",
+    alt: "Entrance view of WorkEZ Park Centre, with patterned floor and glazed reception",
   },
   {
     title: "WorkEZ Vivera",
     type: "Workplace",
     place: "Coimbatore",
     facts: "~100,000 sq. ft. · 2,250+ seats · 3 floors",
-    text: "Contributed to the end-to-end delivery of this premium managed office facility — GFC documentation, consultant and vendor coordination, design and site resolution, and execution.",
+    text: "Contributed to the end-to-end delivery of this premium managed office facility, covering GFC documentation, consultant and vendor coordination, design and site resolution, and execution.",
     src: photo.vivera,
-    alt: "Bright open-plan office with planting",
+    alt: "Exterior of the WorkEZ Vivera building at dusk",
   },
 ];
 
@@ -62,7 +62,7 @@ const experience = [
     role: "Executive Designer",
     firm: "WorkEZ Space Solutions",
     city: "Chennai",
-    text: "Corporate workplace interiors — space planning, design development, GFC documentation and working drawings, coordinating clients, consultants, vendors and site teams through to execution.",
+    text: "Corporate workplace interiors: space planning, design development, GFC documentation and working drawings, coordinating clients, consultants, vendors and site teams through to execution.",
   },
   {
     when: "Oct 2022 – Jan 2024",
@@ -82,8 +82,18 @@ const experience = [
 
 const details = [
   ["Clients", "PwC, Accenture, Tata Technologies, Psiog, Everstage, Bluepond AI"],
-  ["Software", "Revit, AutoCAD, Vectorworks, SketchUp, Photoshop, Lumion"],
   ["Languages", "Tamil, English"],
+];
+
+// Icons are from the Simple Icons set (files in /public/icons). Lumion has no icon
+// in that set, so it shows a lettered tile; drop a lumion.svg in and set `icon` to use one.
+const software: { name: string; icon?: string }[] = [
+  { name: "Revit", icon: "/icons/autodeskrevit.svg" },
+  { name: "AutoCAD", icon: "/icons/autocad.svg" },
+  { name: "Vectorworks", icon: "/icons/vectorworks.svg" },
+  { name: "SketchUp", icon: "/icons/sketchup.svg" },
+  { name: "Photoshop", icon: "/icons/adobephotoshop.svg" },
+  { name: "Lumion" },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -98,7 +108,7 @@ function Arrow({ className = "" }: { className?: string }) {
 
 function Logo({ className = "" }: { className?: string }) {
   return (
-    <a href="#top" aria-label="Sowmya — home" className={`font-serif text-[2rem] font-medium leading-none tracking-[-0.01em] text-wine ${className}`}>
+    <a href="#top" aria-label="Sowmya, home" className={`font-serif text-[2rem] font-medium leading-none tracking-[-0.01em] text-wine ${className}`}>
       Sowmya.
     </a>
   );
@@ -207,7 +217,7 @@ export default function Home() {
                   src={p.src}
                   alt={p.alt}
                   loading="lazy"
-                  className="block aspect-[1.92/1] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
+                  className="block aspect-[1.92/1] w-full object-cover object-[50%_25%] transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
                 />
               </div>
               <h3 className="pt-3 font-serif text-[1.6rem] tracking-[-0.01em] text-wine">{p.title}</h3>
@@ -299,7 +309,7 @@ export default function Home() {
             </p>
             <p className="body mt-4">
               I work with corporate clients, consultants, vendors and site teams to turn
-              functional requirements into efficient, buildable and visually considered spaces —
+              functional requirements into efficient, buildable and visually considered spaces,
               where design thinking, technical detailing and execution meet.
             </p>
             <dl className="mt-7 grid gap-3 border-t border-line pt-6">
@@ -309,6 +319,36 @@ export default function Home() {
                   <dd className="text-[0.82rem] leading-relaxed tracking-[0.03em]">{v}</dd>
                 </div>
               ))}
+              <div className="grid gap-3 sm:grid-cols-[6.5rem_1fr] sm:gap-4">
+                <dt className="label pt-2 font-semibold text-wine">Software</dt>
+                <dd>
+                  <ul className="flex flex-wrap gap-x-6 gap-y-4">
+                    {software.map((s) => (
+                      <li key={s.name} className="flex w-[3.6rem] flex-col items-center gap-2 text-center">
+                        {s.icon ? (
+                          // The SVG is used as a mask so the icon takes the site's wine colour.
+                          <span
+                            aria-hidden
+                            className="block h-8 w-8 bg-wine"
+                            style={{
+                              mask: `url(${s.icon}) center / contain no-repeat`,
+                              WebkitMask: `url(${s.icon}) center / contain no-repeat`,
+                            }}
+                          />
+                        ) : (
+                          <span
+                            aria-hidden
+                            className="flex h-8 w-8 items-center justify-center rounded-[5px] bg-wine text-[0.8rem] font-semibold tracking-normal text-cream"
+                          >
+                            {s.name.slice(0, 2)}
+                          </span>
+                        )}
+                        <span className="text-[0.62rem] uppercase leading-tight tracking-[0.1em]">{s.name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
             </dl>
           </div>
         </section>

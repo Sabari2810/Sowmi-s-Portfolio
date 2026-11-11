@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Design tokens — available as Tailwind utilities (bg-cream, text-maroon, font-serif …) */
+/* Design tokens: available as Tailwind utilities (bg-cream, text-maroon, font-serif …) */
 @theme inline {
   --color-cream: #f6f2ed;
   --color-sand: #ebe6df;

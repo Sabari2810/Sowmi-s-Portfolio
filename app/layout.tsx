@@ -11,7 +11,7 @@ const serif = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Sowmya P — Architect / Interior & Workplace Designer",
+  title: "Sowmya P | Architect / Interior & Workplace Designer",
   description:
     "Sowmya P is a Chennai-based architect and interior & workplace designer, taking projects from client brief and space planning through detailed design and execution.",
 };
