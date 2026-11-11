@@ -119,8 +119,16 @@ const experience = [
   },
 ];
 
-const details = [
-  ["Clients", "PwC, Accenture, Tata Technologies, Psiog, Everstage, Bluepond AI"],
+// Client logos (files in /public/icons/clients), shown as plain wine silhouettes.
+// w and h are the file's pixel size; `show` is the height they are displayed at, in px.
+// The Tata emblem stands in for Tata Technologies' own logo.
+const clients: { name: string; icon: string; w: number; h: number; show: number }[] = [
+  { name: "PwC", icon: "/icons/clients/pwc.png", w: 168, h: 82, show: 30 },
+  { name: "Accenture", icon: "/icons/clients/accenture.png", w: 228, h: 240, show: 26 },
+  { name: "Tata Technologies", icon: "/icons/clients/tata.png", w: 240, h: 162, show: 28 },
+  { name: "Psiog", icon: "/icons/clients/psiog.png", w: 844, h: 238, show: 26 },
+  { name: "Everstage", icon: "/icons/clients/everstage.png", w: 1198, h: 228, show: 20 },
+  { name: "Bluepond AI", icon: "/icons/clients/bluepond.png", w: 2259, h: 240, show: 14 },
 ];
 
 // Icons are the ones used in her resume (files in /public/icons).
@@ -387,12 +395,29 @@ export default function Home() {
               where design thinking, technical detailing and execution meet.
             </p>
             <dl className="mt-7 grid gap-3 border-t border-line pt-6">
-              {details.map(([k, v]) => (
-                <div key={k} className="grid gap-1 sm:grid-cols-[6.5rem_1fr] sm:gap-4">
-                  <dt className="label pt-0.5 font-semibold text-wine">{k}</dt>
-                  <dd className="text-[0.82rem] leading-relaxed tracking-[0.03em]">{v}</dd>
-                </div>
-              ))}
+              <div className="grid gap-3 sm:grid-cols-[6.5rem_1fr] sm:gap-4">
+                <dt className="label pt-1 font-semibold text-wine">Clients</dt>
+                <dd>
+                  <ul className="flex flex-wrap items-center gap-x-8 gap-y-5">
+                    {clients.map((c) => (
+                      <li key={c.name}>
+                        {/* The logo is used as a mask so every one takes the same wine colour. */}
+                        <span
+                          role="img"
+                          aria-label={c.name}
+                          className="block bg-wine"
+                          style={{
+                            height: c.show,
+                            aspectRatio: `${c.w} / ${c.h}`,
+                            mask: `url(${c.icon}) center / contain no-repeat`,
+                            WebkitMask: `url(${c.icon}) center / contain no-repeat`,
+                          }}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
               <div className="grid gap-3 sm:grid-cols-[6.5rem_1fr] sm:gap-4">
                 <dt className="label pt-2 font-semibold text-wine">Software</dt>
                 <dd>
