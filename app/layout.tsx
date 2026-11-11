@@ -20,6 +20,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: "#f6f2ed",
+  // Light-only design: stops phones' automatic dark mode from recolouring text over images.
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -61,13 +61,15 @@ export default function Carousel({ slides, label }: { slides: Slide[]; label: st
               className="flex aspect-[1.92/1] w-full flex-none snap-center gap-1.5 bg-sand"
             >
               {s.images.map((im) => (
-                <img
-                  key={im.src}
-                  src={im.src}
-                  alt={im.alt}
-                  loading={i === 0 ? "eager" : "lazy"}
-                  className="block h-full min-w-0 flex-1 object-cover"
-                />
+                // Each photo fills its own box; absolute positioning avoids Safari's percentage-height quirks.
+                <div key={im.src} className="relative min-w-0 flex-1">
+                  <img
+                    src={im.src}
+                    alt={im.alt}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    className="absolute inset-0 block h-full w-full object-cover"
+                  />
+                </div>
               ))}
             </div>
           ))}
@@ -79,7 +81,7 @@ export default function Carousel({ slides, label }: { slides: Slide[]; label: st
         <button type="button" aria-label="Next photo" disabled={index === slides.length - 1} onClick={() => go(index + 1)} className={`${arrow} right-2.5`}>
           <Chevron />
         </button>
-        <span className="pointer-events-none absolute bottom-2.5 right-2.5 rounded-full bg-wine/85 px-2.5 py-1 text-[0.65rem] tracking-[0.12em] text-cream lining-nums">
+        <span className="pointer-events-none absolute bottom-2.5 right-2.5 rounded-full bg-wine px-3 py-1.5 text-xs font-medium tracking-[0.1em] text-white ring-1 ring-white/40 lining-nums">
           {index + 1} / {slides.length}
         </span>
       </div>

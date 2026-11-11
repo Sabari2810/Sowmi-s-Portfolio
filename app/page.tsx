@@ -144,10 +144,14 @@ function Arrow({ className = "" }: { className?: string }) {
   );
 }
 
-function Logo({ className = "" }: { className?: string }) {
+/** Name block: "Architect Portfolio" over "Architect Sowmya" in the header, just the name in the footer. */
+function Logo({ stacked = false, className = "" }: { stacked?: boolean; className?: string }) {
   return (
-    <a href="#top" aria-label="Sowmya, home" className={`font-serif text-[2rem] font-medium leading-none tracking-[-0.01em] text-wine ${className}`}>
-      Sowmya.
+    <a href="#top" aria-label="Architect Sowmya, home" className={`block leading-none text-wine ${className}`}>
+      {stacked && <span className="label mb-2.5 block font-semibold">Architect Portfolio</span>}
+      <span className="block font-serif text-[2rem] font-medium leading-none tracking-[-0.01em]">
+        Architect Sowmya
+      </span>
     </a>
   );
 }
@@ -157,7 +161,7 @@ export default function Home() {
     <div id="top" className="mx-auto max-w-[1440px]">
       {/* HEADER */}
       <header className="gutter flex flex-wrap items-center justify-between gap-x-8 gap-y-5 pb-2 pt-8 lg:pt-12">
-        <Logo />
+        <Logo stacked />
         <nav aria-label="Primary" className="flex w-full justify-between gap-6 text-[0.9rem] tracking-[0.02em] sm:w-auto sm:justify-start sm:gap-10 lg:mr-[1.5%] lg:gap-12">
           {nav.map((n, i) => (
             <a
@@ -267,14 +271,18 @@ export default function Home() {
             href="/projects/cognitive-playground"
             className="group relative grid min-w-0 overflow-hidden border border-line transition-colors hover:border-maroon sm:grid-cols-[1.15fr_1fr] lg:col-span-2 lg:col-start-2"
           >
-            <img
-              src="/images/cognitive-playground/reception-1.webp"
-              width={1920}
-              height={1080}
-              alt="Render of the Cognitive Playground reception"
-              loading="lazy"
-              className="block h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
-            />
+            {/* The image fills its own box (fixed shape on a phone, full card height beside the text on
+                larger screens). It is absolutely positioned so Safari can't stretch it over the text. */}
+            <div className="relative aspect-[16/9] overflow-hidden sm:aspect-auto">
+              <img
+                src="/images/cognitive-playground/reception-1.webp"
+                width={1920}
+                height={1080}
+                alt="Render of the Cognitive Playground reception"
+                loading="lazy"
+                className="absolute inset-0 block h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
+              />
+            </div>
             <div className="relative flex flex-col justify-between gap-8 overflow-hidden px-6 py-7 sm:px-8">
               <Neural className="pointer-events-none absolute -right-10 bottom-0 h-3/4 w-full text-maroon/10 transition-colors group-hover:text-maroon/25" />
               <div className="relative">
@@ -414,7 +422,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="gutter flex flex-col gap-6 pb-10 pt-6 sm:flex-row sm:items-center sm:gap-12">
-        <Logo className="!text-[1.65rem]" />
+        <Logo className="[&>span]:!text-[1.65rem]" />
         <span aria-hidden className="hidden h-px flex-1 bg-maroon/40 sm:block" />
         <div className="flex flex-col gap-3 text-[0.8rem] tracking-[0.04em] sm:flex-row sm:items-center sm:gap-8">
           <a href={`mailto:${contact.email}`} className="flex items-center gap-3 hover:text-maroon">

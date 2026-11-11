@@ -26,7 +26,7 @@ const renders: Record<string, RenderImage | undefined> = {
   reception: img("reception-2", 1920, 1080), // "Reception 02"
   workspace: img("work-zone-1", 1920, 1080), // "Work Zone"
   workspaceView2: img("work-zone-2", 1920, 1080), // "Work Zone 02"
-  meeting: img("focus-zone", 1920, 1080), // "Focus Zone"
+  focus: img("focus-zone", 1920, 1080), // "Focus Zone"
   fitness: img("fitness-zone", 1920, 1080), // "Fitness Zone"
   zen: img("zen-zone", 1280, 800), // "Zen Zone"
   pantry: img("pantry", 1536, 1024), // "Pantry"
@@ -65,10 +65,11 @@ const spaces = [
     text: "The reception introduces the project’s overall design language and establishes the conceptual identity of Cognitive Playground.",
   },
   {
-    key: "meeting" as const,
-    name: "Meeting Zones",
-    heading: "Separate, yet connected",
-    text: "Designed for collaboration, discussion and focused interaction. Temporary, flexible partition systems allow functional separation while the zones stay visually connected to the larger workspace.",
+    key: "focus" as const,
+    name: "Focus Zone",
+    heading: "Focus Zone",
+    // No description supplied yet: add one here as `text: "..."` and it will appear.
+    text: "",
   },
   {
     key: "fitness" as const,
@@ -288,7 +289,7 @@ export default function CognitivePlayground() {
             </div>
           </article>
 
-          <Space index={3} space={spaces[1]} image={renders.meeting} caption="Focus Zone" flip />
+          <Space index={3} space={spaces[1]} image={renders.focus} flip />
           <Space index={4} space={spaces[2]} image={renders.fitness} />
           <Space index={5} space={spaces[3]} image={renders.zen} flip />
           <Space index={6} space={spaces[4]} image={renders.pantry} />
@@ -401,7 +402,7 @@ function Space({
         </p>
         <h3 className="display mt-4 text-[clamp(1.7rem,2.3vw,2.1rem)]">{space.heading}</h3>
         <span className="rule mt-5" />
-        <p className="body mt-5">{space.text}</p>
+        {space.text && <p className="body mt-5">{space.text}</p>}
       </div>
     </article>
   );
