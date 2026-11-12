@@ -115,7 +115,10 @@ export default function DrawingCarousel({ items, label }: { items: Drawing[]; la
       </div>
 
       <div className="mt-5 flex items-center justify-between gap-4">
-        <p className="label text-ink/60">Select a drawing to open it full size</p>
+        <p className="label text-ink/60">
+          <span className="sm:hidden">Swipe for more · tap to open</span>
+          <span className="hidden sm:inline">Select a drawing to open it full size</span>
+        </p>
         <div className="flex flex-none gap-1.5">
           {items.map((d, i) => {
             const active = i >= first && i < first + count;

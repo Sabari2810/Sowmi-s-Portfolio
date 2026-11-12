@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
+import BackToTop from "@/components/BackToTop";
 
 const sans = Jost({ subsets: ["latin"], variable: "--font-jost" });
 const serif = Cormorant_Garamond({
@@ -39,7 +40,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable} scroll-smooth motion-reduce:scroll-auto`}>
-      <body className="overflow-x-hidden bg-cream font-sans text-ink antialiased">{children}</body>
+      <body className="overflow-x-hidden bg-cream font-sans text-ink antialiased">{children}
+        <BackToTop />
+      </body>
     </html>
   );
 }

@@ -41,3 +41,8 @@
     @apply text-[0.9rem] leading-[1.75] tracking-[0.02em];
   }
 }
+
+@keyframes nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}

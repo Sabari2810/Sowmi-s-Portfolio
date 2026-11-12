@@ -88,6 +88,15 @@ export const managedOffice = [
         ],
       },
       {
+        caption: "Lounge and high-table seating",
+        images: [
+          {
+            src: "/images/helix/slide-2.webp",
+            alt: "Open lounge with sculptural light-ribbon pendants, green armchairs, a curved sofa and a high table by the windows",
+          },
+        ],
+      },
+      {
         caption: "Workspace corridor",
         images: [{ src: "/images/helix/corridor.webp", alt: "Glazed corridor with lounge seating and planting" }],
       },

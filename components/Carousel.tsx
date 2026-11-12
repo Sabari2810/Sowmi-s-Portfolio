@@ -28,6 +28,7 @@ function Chevron({ flip = false }: { flip?: boolean }) {
 export default function Carousel({ slides, label }: { slides: Slide[]; label: string }) {
   const scroller = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
+  const [swiped, setSwiped] = useState(false);
 
   const go = (i: number) => {
     const el = scroller.current;
@@ -52,6 +53,7 @@ export default function Carousel({ slides, label }: { slides: Slide[]; label: st
           onScroll={(e) => {
             const el = e.currentTarget;
             setIndex(Math.round(el.scrollLeft / el.clientWidth));
+            if (el.scrollLeft > 8) setSwiped(true);
           }}
           onKeyDown={(e) => {
             if (e.key === "ArrowLeft") { e.preventDefault(); go(index - 1); }
@@ -88,6 +90,13 @@ export default function Carousel({ slides, label }: { slides: Slide[]; label: st
         <button type="button" aria-label="Next photo" disabled={index === slides.length - 1} onClick={() => go(index + 1)} className={`${arrow} right-2.5`}>
           <Chevron />
         </button>
+        {/* Phones: a hint until the first swipe */}
+        {!swiped && slides.length > 1 && (
+          <span aria-hidden className="pointer-events-none absolute bottom-2.5 left-2.5 flex items-center gap-2 rounded-full bg-wine px-3 py-1.5 text-xs font-medium tracking-[0.1em] text-white ring-1 ring-white/40 sm:hidden">
+            Swipe
+            <svg viewBox="0 0 28 10" className="h-2 w-5 animate-[nudge_1.4s_ease-in-out_infinite] motion-reduce:animate-none" fill="none" stroke="currentColor" strokeWidth="1.3"><path d="M0 5h27M22.5 1l4.5 4-4.5 4" /></svg>
+          </span>
+        )}
         <span className="pointer-events-none absolute bottom-2.5 right-2.5 rounded-full bg-wine px-3 py-1.5 text-xs font-medium tracking-[0.1em] text-white ring-1 ring-white/40 lining-nums">
           {index + 1} / {slides.length}
         </span>
