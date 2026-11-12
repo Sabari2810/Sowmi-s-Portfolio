@@ -92,6 +92,39 @@ const projects = [
       },
     ] satisfies Slide[],
   },
+  {
+    title: "WorkEZ Helix",
+    type: "Workplace",
+    place: "Velachery, Chennai",
+    // Facts and description come from WorkEZ's own page for this centre. Add Sowmya's role here
+    // (as in the two projects above) once she has described it.
+    facts: "~125,000 sq. ft. · 2,250+ workstations · 10 floors",
+    text: "A managed office centre next to Phoenix Market City, planned with work zones and breakout areas for informal discussions, quiet work and collaboration.",
+    slides: [
+      {
+        caption: "Workspace corridor",
+        images: [{ src: "/images/helix/corridor.webp", alt: "Glazed corridor with lounge seating and planting" }],
+      },
+      {
+        caption: "The building",
+        images: [{ src: "/images/helix/exterior.webp", alt: "WorkEZ Helix tower in Velachery" }],
+      },
+      {
+        caption: "Booth seating and cafeteria",
+        images: [
+          { src: "/images/helix/space-1.webp", alt: "Booth seating set into arched openings" },
+          { src: "/images/helix/space-2.webp", alt: "Cafeteria tables with planters" },
+        ],
+      },
+      {
+        caption: "Lounge and workstations",
+        images: [
+          { src: "/images/helix/space-3.webp", alt: "Informal lounge with a large pendant light" },
+          { src: "/images/helix/space-4.webp", alt: "Rows of workstations under pendant lights" },
+        ],
+      },
+    ] satisfies Slide[],
+  },
 ];
 
 const experience = [
