@@ -6,7 +6,7 @@ import Render, { type RenderImage } from "@/components/Render";
 export const metadata: Metadata = {
   title: "Client Projects | Sowmya P",
   description:
-    "Client workplace interiors: an Accenture reception, and corridor ceiling and pantry details at WorkEZ Park Centre.",
+    "Design development, GFC documentation and working drawings for client workplace interiors, coordinated through to execution.",
 };
 
 /* ------------------------------------------------------------------ */
@@ -120,8 +120,9 @@ export default function ClientProjects() {
             Client <em>Projects</em>
           </h1>
           <p className="body mt-7 max-w-xl">
-            Reception, ceiling and pantry designs for client workplaces, shown as renders and
-            detail drawings.
+            Design development, GFC documentation and detailed working drawings for client
+            workplace interiors, with coordination across consultants, vendors and site teams
+            through to execution.
           </p>
         </section>
 

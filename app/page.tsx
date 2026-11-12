@@ -339,7 +339,7 @@ export default function Home() {
               alt="Render of the Accenture reception with a back-lit logo wall"
               label="Workplace interiors"
               title="Client Projects"
-              text="Reception, ceiling and pantry designs for client workplaces: an Accenture reception built around a back-lit logo wall, and corridor ceiling and pantry details at Park Centre."
+              text="Responsible for design development, GFC documentation and detailed working drawings for client workplace interiors, coordinating with consultants, vendors and site teams through to execution."
               cta="View renders and drawings"
             />
           </div>
