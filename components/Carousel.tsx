@@ -5,7 +5,14 @@ import { useRef, useState } from "react";
 
 export type Slide = {
   /** One image fills the frame; two sit side by side (used for the smaller portrait photos). */
-  images: { src: string; alt: string }[];
+  images: {
+    src: string;
+    alt: string;
+    /** "contain" shows the whole picture (for tall images in a wide frame); the default fills the frame. */
+    fit?: "cover" | "contain";
+    /** CSS background behind a "contain" picture, e.g. a gradient matching its edges. */
+    backdrop?: string;
+  }[];
   caption: string;
 };
 
@@ -62,12 +69,12 @@ export default function Carousel({ slides, label }: { slides: Slide[]; label: st
             >
               {s.images.map((im) => (
                 // Each photo fills its own box; absolute positioning avoids Safari's percentage-height quirks.
-                <div key={im.src} className="relative min-w-0 flex-1">
+                <div key={im.src} className="relative min-w-0 flex-1" style={im.backdrop ? { background: im.backdrop } : undefined}>
                   <img
                     src={im.src}
                     alt={im.alt}
                     loading={i === 0 ? "eager" : "lazy"}
-                    className="absolute inset-0 block h-full w-full object-cover"
+                    className={`absolute inset-0 block h-full w-full ${im.fit === "contain" ? "object-contain" : "object-cover"}`}
                   />
                 </div>
               ))}

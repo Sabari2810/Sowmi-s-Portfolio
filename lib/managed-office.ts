@@ -79,6 +79,19 @@ export const managedOffice = [
     text: "A managed office centre next to Phoenix Market City, planned with work zones and breakout areas for informal discussions, quiet work and collaboration.",
     slides: [
       {
+        caption: "Elevation",
+        images: [
+          {
+            src: "/images/helix/elevation.webp",
+            alt: "Elevation of WorkEZ Helix: a ten-storey tower with white slab edges and a glazed facade at dusk",
+            // A tall picture in a wide frame: shown whole, on a backdrop matched to its dusk sky.
+            fit: "contain",
+            backdrop:
+              "linear-gradient(to bottom, rgb(57,64,109) 0%, rgb(91,101,148) 25%, rgb(140,147,183) 50%, rgb(119,113,96) 75%, rgb(65,48,43) 100%)",
+          },
+        ],
+      },
+      {
         caption: "Workspace corridor",
         images: [{ src: "/images/helix/corridor.webp", alt: "Glazed corridor with lounge seating and planting" }],
       },
