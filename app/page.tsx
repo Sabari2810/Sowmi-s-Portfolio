@@ -21,6 +21,7 @@ const nav = [
   { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },
   { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
 ];
 
 const overview = {
@@ -182,7 +183,7 @@ export default function Home() {
       {/* HEADER */}
       <header className="gutter flex flex-wrap items-center justify-between gap-x-8 gap-y-5 pb-2 pt-8 lg:pt-12">
         <Logo stacked />
-        <nav aria-label="Primary" className="flex w-full justify-between gap-6 text-[0.9rem] tracking-[0.02em] sm:w-auto sm:justify-start sm:gap-10 lg:mr-[1.5%] lg:gap-12">
+        <nav aria-label="Primary" className="flex w-full justify-between gap-3 text-[0.82rem] tracking-[0.02em] sm:w-auto sm:justify-start sm:gap-10 sm:text-[0.9rem] lg:mr-[1.5%] lg:gap-12">
           {nav.map((n, i) => (
             <a
               key={n.href}
