@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Sowmya P. Portfolio",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Sowmya P. Architect and Workplace Interior Designer" }],
   },
-  twitter: { card: "summary_large_image", title: shareTitle, description: shareDescription, images: ["/og-image.jpg"] },
+  twitter: { card: "summary_large_image", title: shareTitle, description: "Architecture, workplace interiors and spatial design.", images: ["/og-image.jpg"] },
 };
 
 export const viewport: Viewport = {
