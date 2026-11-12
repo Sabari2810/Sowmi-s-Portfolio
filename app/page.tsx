@@ -163,9 +163,22 @@ function FeatureCard({
   );
 }
 
+// Structured data for search engines (JSON-LD). Keep it in step with what the page says.
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Sowmya P.",
+  url: "https://by-sowmya.vercel.app/",
+  jobTitle: "Architect and Workplace Interior Designer",
+  email: contact.email,
+  address: { "@type": "PostalAddress", addressLocality: "Chennai", addressCountry: "IN" },
+  knowsAbout: ["Architecture", "Workplace Interior Design", "Space Planning", "Technical Documentation"],
+};
+
 export default function Home() {
   return (
     <div id="top" className="mx-auto max-w-[1440px]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
       {/* HEADER */}
       <header className="gutter flex flex-wrap items-center justify-between gap-x-8 gap-y-5 pb-2 pt-8 lg:pt-12">
         <Logo stacked />
