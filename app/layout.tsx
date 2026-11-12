@@ -11,9 +11,9 @@ const serif = Cormorant_Garamond({
   variable: "--font-serif-display",
 });
 
-const title = "Sowmya P | Space Planning / Interior & Workplace Designer";
+const title = "Sowmya P. | Architect & Workplace Interior Designer in Chennai";
 const description =
-  "Sowmya P is a Chennai-based COA registered architect and interior & workplace designer, taking projects from client brief and space planning through detailed design and execution.";
+  "Explore the portfolio of Sowmya P., a Chennai-based COA-registered architect specialising in workplace interiors, space planning, architectural design and project delivery.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://by-sowmya.vercel.app"),
