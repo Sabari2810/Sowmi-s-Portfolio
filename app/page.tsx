@@ -393,7 +393,7 @@ export default function Home() {
         </section>
 
         {/* ABOUT */}
-        <section id="about" className="grid scroll-mt-6 items-center gap-10 py-10 lg:grid-cols-[44%_1fr] lg:gap-0 lg:py-8">
+        <section id="about" className="grid scroll-mt-6 items-center gap-10 py-10 lg:grid-cols-[44%_1fr] lg:items-start lg:gap-0 lg:py-8">
           <div className="relative pb-4 pl-6 pr-6 sm:pl-10 sm:pr-10 lg:pb-[1.1rem] lg:pl-[14%] lg:pr-0">
             {/* maroon block behind the portrait's lower-left corner */}
             <div aria-hidden className="absolute bottom-0 left-0 top-[58%] w-[45%] bg-maroon sm:left-4 lg:left-[8.5%] lg:w-[33%]" />
