@@ -19,7 +19,7 @@ export default function BackToTop() {
       aria-label="Back to top"
       tabIndex={show ? 0 : -1}
       onClick={() => window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" })}
-      className={`fixed bottom-5 right-5 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-wine text-white shadow-md ring-1 ring-white/30 transition duration-300 hover:bg-maroon ${
+      className={`cursor-pointer fixed bottom-5 right-5 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-wine text-white shadow-md ring-1 ring-white/30 transition duration-300 hover:bg-maroon ${
         show ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
       }`}
     >
