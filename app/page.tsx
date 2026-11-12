@@ -434,7 +434,10 @@ export default function Home() {
               project coordination to create spaces that are thoughtful, functional and built to
               perform.
             </p>
-            <dl className="mt-7 grid gap-3 border-t border-line pt-6">
+          </div>
+          {/* Clients and software run the full width beneath the portrait and intro. */}
+          <div className="gutter lg:col-span-2">
+            <dl className="grid gap-3 border-t border-line pt-6 lg:mt-4 lg:grid-cols-2 lg:gap-x-[6%]">
               <div className="grid gap-3 sm:grid-cols-[6.5rem_1fr] sm:gap-4">
                 <dt className="label pt-1 font-semibold text-wine">Clients</dt>
                 <dd>
