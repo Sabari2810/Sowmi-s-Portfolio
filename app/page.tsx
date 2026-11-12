@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Neural from "@/components/Neural";
+import Drafting from "@/components/Drafting";
 
 /* ------------------------------------------------------------------ */
 /* Content: taken from Sowmya's resume (2026). Edit here.             */
@@ -120,7 +121,7 @@ function FeatureCard({
   title,
   text,
   cta,
-  decor = false,
+  decor,
 }: {
   href: string;
   src: string;
@@ -129,7 +130,7 @@ function FeatureCard({
   title: React.ReactNode;
   text: string;
   cta: string;
-  decor?: boolean;
+  decor?: "neural";
 }) {
   return (
     <Link
@@ -147,7 +148,7 @@ function FeatureCard({
         />
       </div>
       <div className="relative flex flex-col justify-between gap-8 overflow-hidden px-6 py-7 sm:px-8">
-        {decor && (
+        {decor === "neural" && (
           <Neural className="pointer-events-none absolute -right-10 bottom-0 h-3/4 w-full text-maroon/10 transition-colors group-hover:text-maroon/25" />
         )}
         <div className="relative">
@@ -284,7 +285,7 @@ export default function Home() {
 
         {/* SELECTED PROJECTS */}
         <section id="projects" className="gutter grid scroll-mt-6 gap-10 py-12 lg:grid-cols-[21%_1fr_1fr] lg:gap-x-6 lg:pb-10 lg:pt-9">
-          <div className="lg:pr-4">
+          <div className="lg:col-start-1 lg:row-start-1 lg:pr-4">
             <p className="label font-semibold text-wine">Projects</p>
             <h2 className="display mt-6 text-[clamp(2.5rem,4vw,3.5rem)] lg:mt-7">
               Selected
@@ -299,7 +300,7 @@ export default function Home() {
           </div>
 
           {/* GROUP: Concept Design */}
-          <div className="min-w-0 lg:col-span-2 lg:col-start-2">
+          <div className="min-w-0 lg:col-span-2 lg:col-start-2 lg:row-start-1">
             <div className="mb-5 flex items-center gap-4">
               <h3 className="label flex-none font-semibold text-wine">Concept Design</h3>
               <span aria-hidden className="h-px flex-1 bg-line" />
@@ -316,12 +317,18 @@ export default function Home() {
             }
             text="A Neuroscience-Inspired, Biomimetic Workplace. Circulation planned like a nervous system, with each zone keeping its own identity."
             cta="View project"
-            decor
+            decor="neural"
           />
           </div>
 
+          {/* A general architectural drafting drawing that fills the left column beside the two groups below */}
+          <div aria-hidden className="relative hidden text-maroon/[0.08] lg:col-start-1 lg:row-span-2 lg:row-start-2 lg:block [clip-path:inset(0_-40vw_0_-40vw)]">
+            {/* Drawn larger than the column: it runs off the left edge of the screen and is cut off at the bottom, like part of a bigger sheet. */}
+            <Drafting className="absolute -left-[385%] top-0 h-auto w-[462%] max-w-none" />
+          </div>
+
           {/* GROUP: Managed Office Spaces, opens a page with the workplaces */}
-          <div className="min-w-0 lg:col-span-2 lg:col-start-2">
+          <div className="min-w-0 lg:col-span-2 lg:col-start-2 lg:row-start-2">
             <div className="mb-5 flex items-center gap-4">
               <h3 className="label flex-none font-semibold text-wine">Managed Office Spaces</h3>
               <span aria-hidden className="h-px flex-1 bg-line" />
@@ -342,7 +349,7 @@ export default function Home() {
           </div>
 
           {/* GROUP: Client Projects, opens its own page of renders and drawings */}
-          <div className="min-w-0 lg:col-span-2 lg:col-start-2">
+          <div className="min-w-0 lg:col-span-2 lg:col-start-2 lg:row-start-3">
             <div className="mb-5 flex items-center gap-4">
               <h3 className="label flex-none font-semibold text-wine">Client Projects</h3>
               <span aria-hidden className="h-px flex-1 bg-line" />
