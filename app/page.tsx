@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import Carousel, { type Slide } from "@/components/Carousel";
 import Neural from "@/components/Neural";
 
 /* ------------------------------------------------------------------ */
@@ -31,101 +30,7 @@ const overview = [
   { value: "COA Registered Architect", label: "CA/2023/155850" },
 ];
 
-const projects = [
-  {
-    title: "WorkEZ Park Centre",
-    type: "Workplace",
-    place: "Alwarpet, Chennai",
-    facts: "~35,000 sq. ft. · 600+ seats · 4 floors",
-    text: "Handled end-to-end, from design development and GFC documentation to consultant and vendor coordination, site resolution and execution. Also designed the cafeteria and pantry interiors.",
-    // Captions are a first reading of each photo; edit them to say what Sowmya wants to explain.
-    // The Park Centre lounge photo is used as the page's hero image, so it isn't repeated here.
-    slides: [
-      {
-        caption: "The building at dusk",
-        images: [{ src: "/images/park-centre/exterior.webp", alt: "Brick-clad WorkEZ Park Centre building lit at dusk" }],
-      },
-      {
-        caption: "Boardroom and cafeteria",
-        images: [
-          { src: "/images/park-centre/space-2.webp", alt: "Boardroom with a long timber table and cane-backed chairs" },
-          { src: "/images/park-centre/space-3.webp", alt: "Cafeteria with round tables, pendant lights and planting" },
-        ],
-      },
-      {
-        caption: "Waiting lounge and breakout seating",
-        images: [
-          { src: "/images/park-centre/space-1.webp", alt: "Waiting lounge with leather armchairs and a timber wall" },
-          { src: "/images/park-centre/space-4.webp", alt: "Breakout seating nook with small round tables" },
-        ],
-      },
-    ] satisfies Slide[],
-  },
-  {
-    title: "WorkEZ Vivera",
-    type: "Workplace",
-    place: "Coimbatore",
-    facts: "~100,000 sq. ft. · 2,250+ seats · 3 floors",
-    text: "Contributed to the end-to-end delivery of this premium managed office facility, covering GFC documentation, consultant and vendor coordination, design and site resolution, and execution.",
-    slides: [
-      {
-        caption: "Reception",
-        images: [{ src: "/images/vivera/reception.webp", alt: "Reception with a stone desk and the WorkEZ sign" }],
-      },
-      {
-        caption: "The building",
-        images: [{ src: "/images/vivera/exterior.webp", alt: "WorkEZ Vivera building with blue glazed facade" }],
-      },
-      {
-        caption: "Lounge and window-side seating",
-        images: [
-          { src: "/images/vivera/space-1.webp", alt: "Lounge with a curved yellow sofa" },
-          { src: "/images/vivera/space-2.webp", alt: "Bar-height seating along a window with planting" },
-        ],
-      },
-      {
-        caption: "Meeting room and games area",
-        images: [
-          { src: "/images/vivera/space-3.webp", alt: "Meeting room with a long table and orange chairs" },
-          { src: "/images/vivera/space-4.png", alt: "Games area with a foosball table and pool table" },
-        ],
-      },
-    ] satisfies Slide[],
-  },
-  {
-    title: "WorkEZ Helix",
-    type: "Workplace",
-    place: "Velachery, Chennai",
-    // Facts and description come from WorkEZ's own page for this centre. Add Sowmya's role here
-    // (as in the two projects above) once she has described it.
-    facts: "~125,000 sq. ft. · 2,250+ workstations · 10 floors",
-    text: "A managed office centre next to Phoenix Market City, planned with work zones and breakout areas for informal discussions, quiet work and collaboration.",
-    slides: [
-      {
-        caption: "Workspace corridor",
-        images: [{ src: "/images/helix/corridor.webp", alt: "Glazed corridor with lounge seating and planting" }],
-      },
-      {
-        caption: "The building",
-        images: [{ src: "/images/helix/exterior.webp", alt: "WorkEZ Helix tower in Velachery" }],
-      },
-      {
-        caption: "Booth seating and cafeteria",
-        images: [
-          { src: "/images/helix/space-1.webp", alt: "Booth seating set into arched openings" },
-          { src: "/images/helix/space-2.webp", alt: "Cafeteria tables with planters" },
-        ],
-      },
-      {
-        caption: "Lounge and workstations",
-        images: [
-          { src: "/images/helix/space-3.webp", alt: "Informal lounge with a large pendant light" },
-          { src: "/images/helix/space-4.webp", alt: "Rows of workstations under pendant lights" },
-        ],
-      },
-    ] satisfies Slide[],
-  },
-];
+
 
 const experience = [
   {
@@ -189,15 +94,68 @@ function Arrow({ className = "" }: { className?: string }) {
   );
 }
 
-/** Name block: "Architect Portfolio" over "Architect Sowmya" in the header, just the name in the footer. */
+/** Name block: "Architecture Portfolio" over "AR.SOWMYA. P" in the header. */
 function Logo({ stacked = false, className = "" }: { stacked?: boolean; className?: string }) {
   return (
-    <a href="#top" aria-label="Architect Sowmya, home" className={`block leading-none text-wine ${className}`}>
-      {stacked && <span className="label mb-2.5 block font-semibold">Architect Portfolio</span>}
+    <a href="#top" aria-label="AR.SOWMYA. P, home" className={`block leading-none text-wine ${className}`}>
+      {stacked && <span className="label mb-2.5 block font-semibold">Architecture Portfolio</span>}
       <span className="block font-serif text-[2rem] font-medium leading-none tracking-[-0.01em]">
-        Architect Sowmya
+        AR.SOWMYA. P
       </span>
     </a>
+  );
+}
+
+/** A wide card linking to a project page: picture on one side, short text on the other. */
+function FeatureCard({
+  href,
+  src,
+  alt,
+  label,
+  title,
+  text,
+  cta,
+  decor = false,
+}: {
+  href: string;
+  src: string;
+  alt: string;
+  label: string;
+  title: React.ReactNode;
+  text: string;
+  cta: string;
+  decor?: boolean;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group relative grid min-w-0 overflow-hidden border border-line transition-colors hover:border-maroon sm:grid-cols-[1.15fr_1fr]"
+    >
+      {/* The image fills its own box (fixed shape on a phone, full card height beside the text on
+          larger screens). It is absolutely positioned so Safari can't stretch it over the text. */}
+      <div className="relative aspect-[16/9] overflow-hidden sm:aspect-auto">
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          className="absolute inset-0 block h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
+        />
+      </div>
+      <div className="relative flex flex-col justify-between gap-8 overflow-hidden px-6 py-7 sm:px-8">
+        {decor && (
+          <Neural className="pointer-events-none absolute -right-10 bottom-0 h-3/4 w-full text-maroon/10 transition-colors group-hover:text-maroon/25" />
+        )}
+        <div className="relative">
+          <p className="label font-normal">{label}</p>
+          <h4 className="mt-4 font-serif text-[clamp(1.9rem,3vw,2.6rem)] leading-none tracking-[-0.01em] text-wine">{title}</h4>
+          <p className="mt-3 max-w-md text-[0.85rem] leading-relaxed tracking-[0.03em]">{text}</p>
+        </div>
+        <span className="label relative inline-flex items-center gap-4 text-wine">
+          {cta}
+          <Arrow className="transition-transform duration-300 group-hover:translate-x-1.5" />
+        </span>
+      </div>
+    </Link>
   );
 }
 
@@ -230,7 +188,7 @@ export default function Home() {
 
           <div className="gutter relative pb-10 pt-10 lg:pb-16 lg:pl-[18.3%] lg:pr-0 lg:pt-[4.5rem]">
             <p className="label flex flex-wrap gap-x-4 gap-y-1 font-semibold text-wine">
-              <span>Architect</span>
+              <span>Space Planning</span>
               <span aria-hidden>/</span>
               <span>Interior &amp; Workplace Designer</span>
             </p>
@@ -292,8 +250,8 @@ export default function Home() {
             </h2>
             <span className="rule mt-7" />
             <p className="body mt-7 max-w-[17rem] lg:max-w-[12rem]">
-              A research-led concept project on the workplace and the mind, and managed
-              workplace projects delivered with WorkEZ.
+              A research-led concept project on the workplace and the mind, managed workplace
+              projects delivered with WorkEZ, and client work.
             </p>
           </div>
 
@@ -303,64 +261,58 @@ export default function Home() {
               <h3 className="label flex-none font-semibold text-wine">Concept Design</h3>
               <span aria-hidden className="h-px flex-1 bg-line" />
             </div>
-          {/* Concept project, opens its own project page */}
-          <Link
+          <FeatureCard
             href="/projects/cognitive-playground"
-            className="group relative grid min-w-0 overflow-hidden border border-line transition-colors hover:border-maroon sm:grid-cols-[1.15fr_1fr]"
-          >
-            {/* The image fills its own box (fixed shape on a phone, full card height beside the text on
-                larger screens). It is absolutely positioned so Safari can't stretch it over the text. */}
-            <div className="relative aspect-[16/9] overflow-hidden sm:aspect-auto">
-              <img
-                src="/images/cognitive-playground/reception-1.webp"
-                width={1920}
-                height={1080}
-                alt="Render of the Cognitive Playground reception"
-                loading="lazy"
-                className="absolute inset-0 block h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
-              />
-            </div>
-            <div className="relative flex flex-col justify-between gap-8 overflow-hidden px-6 py-7 sm:px-8">
-              <Neural className="pointer-events-none absolute -right-10 bottom-0 h-3/4 w-full text-maroon/10 transition-colors group-hover:text-maroon/25" />
-              <div className="relative">
-                <p className="label font-normal">Workplace design</p>
-                <h4 className="mt-4 font-serif text-[clamp(1.9rem,3vw,2.6rem)] leading-none tracking-[-0.01em] text-wine">
-                  Cognitive <em>Playground</em>
-                </h4>
-                <p className="mt-3 max-w-md text-[0.85rem] leading-relaxed tracking-[0.03em]">
-                  A Neuroscience-Inspired, Biomimetic Workplace. Circulation planned like a nervous
-                  system, with each zone keeping its own identity.
-                </p>
-              </div>
-              <span className="label relative inline-flex items-center gap-4 text-wine">
-                View project
-                <Arrow className="transition-transform duration-300 group-hover:translate-x-1.5" />
-              </span>
-            </div>
-          </Link>
+            src="/images/cognitive-playground/reception-1.webp"
+            alt="Render of the Cognitive Playground reception"
+            label="Workplace design"
+            title={
+              <>
+                Cognitive <em>Playground</em>
+              </>
+            }
+            text="A Neuroscience-Inspired, Biomimetic Workplace. Circulation planned like a nervous system, with each zone keeping its own identity."
+            cta="View project"
+            decor
+          />
           </div>
 
-          {/* GROUP: Managed Office Spaces */}
+          {/* GROUP: Managed Office Spaces, opens a page with the three workplaces */}
           <div className="min-w-0 lg:col-span-2 lg:col-start-2">
             <div className="mb-5 flex items-center gap-4">
               <h3 className="label flex-none font-semibold text-wine">Managed Office Spaces</h3>
               <span aria-hidden className="h-px flex-1 bg-line" />
             </div>
-            <div className="grid gap-10 lg:grid-cols-2 lg:gap-x-6">
-          {projects.map((p) => (
-            <article key={p.title} className="min-w-0">
-              <Carousel slides={p.slides} label={`${p.title} photos`} />
-              <h4 className="pt-4 font-serif text-[1.6rem] tracking-[-0.01em] text-wine">{p.title}</h4>
-              <p className="label mt-2.5 flex flex-wrap gap-x-4 gap-y-1 font-normal">
-                <span>{p.type}</span>
-                <span aria-hidden>/</span>
-                <span>{p.place}</span>
-              </p>
-              <p className="mt-3 text-[0.8rem] font-medium tracking-[0.03em] text-wine lining-nums">{p.facts}</p>
-              <p className="mt-2 max-w-[30rem] text-[0.8rem] leading-relaxed tracking-[0.03em]">{p.text}</p>
-            </article>
-          ))}
+            <FeatureCard
+              href="/projects/managed-office-spaces"
+              src="/images/vivera/elevation.webp"
+              alt="Elevation of WorkEZ Vivera, a glazed building with perforated metal screens"
+              label="Three managed workplaces"
+              title={
+                <>
+                  Park Centre, Vivera <em>and Helix</em>
+                </>
+              }
+              text="Managed office centres delivered with WorkEZ, from 35,000 to over 100,000 sq. ft.: Park Centre in Alwarpet, Vivera in Coimbatore and Helix in Velachery."
+              cta="View the three workplaces"
+            />
+          </div>
+
+          {/* GROUP: Client Projects, opens its own page of renders and drawings */}
+          <div className="min-w-0 lg:col-span-2 lg:col-start-2">
+            <div className="mb-5 flex items-center gap-4">
+              <h3 className="label flex-none font-semibold text-wine">Client Projects</h3>
+              <span aria-hidden className="h-px flex-1 bg-line" />
             </div>
+            <FeatureCard
+              href="/projects/client-projects"
+              src="/images/client-projects/accenture/reception-render.webp"
+              alt="Render of the Accenture reception with a back-lit logo wall"
+              label="Workplace interiors"
+              title="Client Projects"
+              text="Reception, ceiling and pantry designs for client workplaces: an Accenture reception built around a back-lit logo wall, and corridor ceiling and pantry details at Park Centre."
+              cta="View renders and drawings"
+            />
           </div>
         </section>
 
@@ -429,20 +381,29 @@ export default function Home() {
           <div className="gutter lg:pl-[16%] lg:pr-[10%]">
             <p className="label font-semibold text-wine">About</p>
             <h2 className="display mt-5 text-[clamp(2.2rem,3.3vw,2.9rem)] italic">
-              A Practice Rooted in
+              Designing with Intent.
               <br />
-              Context and Care
+              Delivering with Precision.
             </h2>
             <span className="rule mt-6" />
             <p className="body mt-6">
-              I’m Sowmya, a Chennai-based architect and interior &amp; workplace designer,
-              registered with the Council of Architecture. My experience spans workplace
-              interiors, architectural design, technical documentation and project coordination.
+              I’m Sowmya, a Chennai-based, COA registered architect specialising in architecture
+              and workplace interiors.
             </p>
             <p className="body mt-4">
-              I work with corporate clients, consultants, vendors and site teams to turn
-              functional requirements into efficient, buildable and visually considered spaces,
-              where design thinking, technical detailing and execution meet.
+              My experience spans corporate workplaces and architectural projects, with hands-on
+              involvement across the entire project lifecycle - from conceptual development and
+              space planning to GFC documentation, consultant coordination and on-site execution.
+            </p>
+            <p className="body mt-4">
+              I have independently handled the delivery of a 35,000 sq. ft. workplace
+              accommodating 600+ seats and contributed to large-scale projects spanning over
+              100,000 sq. ft.
+            </p>
+            <p className="body mt-4">
+              I bring together a practical understanding of design, technical detailing and
+              project coordination to create spaces that are thoughtful, functional and built to
+              perform.
             </p>
             <dl className="mt-7 grid gap-3 border-t border-line pt-6">
               <div className="grid gap-3 sm:grid-cols-[6.5rem_1fr] sm:gap-4">
