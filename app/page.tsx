@@ -192,15 +192,17 @@ export default function Home() {
               <span aria-hidden>/</span>
               <span>Interior &amp; Workplace Designer</span>
             </p>
-            <h1 className="display mt-7 text-[clamp(3rem,4.2vw,4.4rem)] lg:whitespace-nowrap">
-              Spaces for
+            <h1 className="display mt-7 text-[clamp(2.6rem,3.5vw,3.7rem)]">
+              Spaces Shaped by Purpose.
               <br />
-              <em>People</em> and <em>Place</em>
+              <em>Designed for People.</em>
             </h1>
             <span className="rule mt-8" />
-            <p className="body mt-8 max-w-[21rem]">
-              Workplace interiors and architecture, taken from client brief and space planning
-              through detailed design, documentation and execution.
+            <p className="body mt-8 max-w-[22rem]">
+              Workplace interiors and architecture driven by thoughtful design, technical
+              precision and a clear understanding of how spaces function. From initial concepts and
+              spatial planning to detailed documentation and execution, I take projects from vision
+              to reality.
             </p>
             <a href="#projects" className="label group mt-10 inline-flex items-center gap-4 text-wine">
               Explore projects
