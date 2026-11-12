@@ -489,6 +489,34 @@ export default function Home() {
             </dl>
           </div>
         </section>
+
+        {/* CONTACT */}
+        <section id="contact" aria-labelledby="contact-title" className="gutter scroll-mt-6 bg-sand py-14 lg:py-20">
+          <div className="grid gap-8 lg:grid-cols-[48%_1fr] lg:items-end lg:gap-0">
+            <div>
+              <p className="label font-semibold text-wine">Contact</p>
+              <h2 id="contact-title" className="display mt-5 text-[clamp(2.4rem,4vw,3.4rem)]">
+                Have a space <em>in mind?</em>
+              </h2>
+              <span className="rule mt-6" />
+            </div>
+            <div className="lg:pl-[8%]">
+              <p className="body max-w-xl">
+                I’m always open to conversations about architecture, workplace design and new
+                opportunities.
+              </p>
+              <a
+                href={`mailto:${contact.email}`}
+                className="group mt-7 inline-flex items-center gap-4 font-serif text-[1.9rem] italic leading-none text-wine"
+              >
+                Let’s talk.
+                <svg viewBox="0 0 28 10" aria-hidden className="h-2.5 w-7 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" strokeWidth="1">
+                  <path d="M0 5h27M22.5 1l4.5 4-4.5 4" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* FOOTER */}
