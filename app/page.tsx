@@ -277,7 +277,7 @@ export default function Home() {
           />
           </div>
 
-          {/* GROUP: Managed Office Spaces, opens a page with the three workplaces */}
+          {/* GROUP: Managed Office Spaces, opens a page with the workplaces */}
           <div className="min-w-0 lg:col-span-2 lg:col-start-2">
             <div className="mb-5 flex items-center gap-4">
               <h3 className="label flex-none font-semibold text-wine">Managed Office Spaces</h3>
@@ -287,14 +287,14 @@ export default function Home() {
               href="/projects/managed-office-spaces"
               src="/images/vivera/elevation.webp"
               alt="Elevation of WorkEZ Vivera, a glazed building with perforated metal screens"
-              label="Three managed workplaces"
+              label="Managed workplaces"
               title={
                 <>
                   Park Centre, Vivera <em>and Helix</em>
                 </>
               }
               text="Managed office centres delivered with WorkEZ, from 35,000 to over 100,000 sq. ft.: Park Centre in Alwarpet, Vivera in Coimbatore and Helix in Velachery."
-              cta="View the three workplaces"
+              cta="View the workplaces"
             />
           </div>
 

@@ -6,7 +6,7 @@ import { managedOffice } from "@/lib/managed-office";
 export const metadata: Metadata = {
   title: "Managed Office Spaces | Sowmya P",
   description:
-    "Three managed workplaces delivered with WorkEZ: Park Centre in Alwarpet, Vivera in Coimbatore and Helix in Velachery.",
+    "Managed workplaces delivered with WorkEZ: Park Centre in Alwarpet, Vivera in Coimbatore and Helix in Velachery.",
 };
 
 function Arrow({ className = "" }: { className?: string }) {
@@ -43,12 +43,12 @@ export default function ManagedOfficeSpaces() {
             Managed Office <em>Spaces</em>
           </h1>
           <p className="body mt-7 max-w-xl">
-            Three managed workplaces delivered with WorkEZ: Park Centre in Alwarpet, Vivera in
+            Managed workplaces delivered with WorkEZ: Park Centre in Alwarpet, Vivera in
             Coimbatore and Helix in Velachery.
           </p>
         </section>
 
-        {/* THE THREE WORKPLACES */}
+        {/* THE WORKPLACES */}
         {managedOffice.map((p, i) => {
           const [first, ...rest] = p.title.split(" ");
           return (

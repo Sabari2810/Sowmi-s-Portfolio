@@ -1,7 +1,7 @@
 import type { Slide } from "@/components/Carousel";
 
 /**
- * The three WorkEZ managed office projects, shown on /projects/managed-office-spaces.
+ * The WorkEZ managed office projects, shown on /projects/managed-office-spaces.
  * To add or change one, edit this list. Photos are in /public/images (park-centre, vivera, helix).
  */
 export const managedOffice = [
