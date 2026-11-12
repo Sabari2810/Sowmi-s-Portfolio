@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title,
     description,
     siteName: "Sowmya P",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Lounge at WorkEZ Park Centre, a workplace interior by Sowmya P" }],
+    images: [{ url: "/og.jpg", width: 1200, height: 628, alt: "Sowmya P. Architect, Interior & Workplace Designer. Spaces shaped by purpose, designed for people." }],
   },
   twitter: { card: "summary_large_image", title, description, images: ["/og.jpg"] },
 };
