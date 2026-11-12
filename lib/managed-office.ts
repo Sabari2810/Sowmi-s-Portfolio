@@ -50,10 +50,6 @@ export const managedOffice = [
         images: [{ src: "/images/vivera/reception.webp", alt: "Reception with a stone desk and the WorkEZ sign" }],
       },
       {
-        caption: "The building",
-        images: [{ src: "/images/vivera/exterior.webp", alt: "WorkEZ Vivera building with blue glazed facade" }],
-      },
-      {
         caption: "Lounge and window-side seating",
         images: [
           { src: "/images/vivera/space-1.webp", alt: "Lounge with a curved yellow sofa" },
@@ -73,10 +69,10 @@ export const managedOffice = [
     title: "WorkEZ Helix",
     type: "Workplace",
     place: "Velachery, Chennai",
-    // Facts and description come from WorkEZ's own page for this centre. Add Sowmya's role here
-    // (as in the two projects above) once she has described it.
+    // Facts come from WorkEZ's own page for this centre. The description follows her resume's WorkEZ
+    // role; edit it to name exactly what Sowmya handled on Helix.
     facts: "~125,000 sq. ft. · 2,250+ workstations · 10 floors",
-    text: "A managed office centre next to Phoenix Market City, planned with work zones and breakout areas for informal discussions, quiet work and collaboration.",
+    text: "Contributed to the delivery of this managed office centre, covering space planning, design development, GFC documentation and working drawings, and coordination with consultants, vendors and site teams through to execution.",
     slides: [
       {
         caption: "Elevation",
@@ -94,10 +90,6 @@ export const managedOffice = [
       {
         caption: "Workspace corridor",
         images: [{ src: "/images/helix/corridor.webp", alt: "Glazed corridor with lounge seating and planting" }],
-      },
-      {
-        caption: "The building",
-        images: [{ src: "/images/helix/exterior.webp", alt: "WorkEZ Helix tower in Velachery" }],
       },
       {
         caption: "Booth seating and cafeteria",

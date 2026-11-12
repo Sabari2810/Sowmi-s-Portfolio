@@ -23,13 +23,16 @@ const nav = [
   { href: "#about", label: "About" },
 ];
 
-const overview = [
-  { value: "40+", label: "Projects Completed", big: true },
-  { value: "5+", label: "Years of Practice", big: true },
-  { value: "3 years", label: "Workplace", big: true },
-  { value: "2 years", label: "Residential & Civic", big: true },
-  { value: "COA Registered Architect", label: "CA/2023/155850" },
-];
+const overview = {
+  projects: "40+",
+  years: "5+",
+  // How the years of practice divide; the bar is drawn in proportion to the years.
+  split: [
+    { label: "Workplace", years: 3 },
+    { label: "Residential & Civic", years: 2 },
+  ],
+  registration: { value: "COA Registered Architect", id: "CA/2023/155850" },
+};
 
 
 
@@ -223,22 +226,45 @@ export default function Home() {
 
         {/* OVERVIEW */}
         <section id="overview" aria-labelledby="overview-title" className="gutter mt-10 scroll-mt-6 bg-sand py-9 lg:mt-7">
-          <div className="grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-[11%_0.85fr_0.8fr_0.95fr_1.1fr_1.1fr] lg:items-center lg:gap-0">
+          <div className="grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-[11%_0.8fr_2.2fr_1.1fr] lg:items-center lg:gap-0">
             <h2 id="overview-title" className="label font-semibold text-wine sm:col-span-2 lg:col-span-1">
               Overview
             </h2>
-            {overview.map((o, i) => (
-              <div key={o.label} className={`border-l py-1 pl-6 lg:pl-[22%] ${i === 0 ? "border-maroon" : "border-line"}`}>
-                <p
-                  className={`font-serif lining-nums tracking-[-0.01em] text-wine ${
-                    o.big ? "text-[2.7rem] leading-none" : "max-w-[12rem] text-[1.4rem] leading-[1.15]"
-                  }`}
-                >
-                  {o.value}
-                </p>
-                <p className="mt-2.5 text-[0.8rem] tracking-[0.03em]">{o.label}</p>
+
+            <div className="border-l border-maroon py-1 pl-6 lg:pl-[22%]">
+              <p className="font-serif text-[2.7rem] leading-none tracking-[-0.01em] text-wine lining-nums">{overview.projects}</p>
+              <p className="mt-2.5 text-[0.8rem] tracking-[0.03em]">Projects Completed</p>
+            </div>
+
+            {/* Years of practice, with the two areas it divides into shown in proportion */}
+            <div className="border-l border-line py-1 pl-6 sm:col-span-2 lg:col-span-1 lg:px-[6%]">
+              <div className="flex items-baseline gap-4">
+                <p className="font-serif text-[2.7rem] leading-none tracking-[-0.01em] text-wine lining-nums">{overview.years}</p>
+                <p className="text-[0.8rem] tracking-[0.03em]">Years of Practice</p>
               </div>
-            ))}
+              <div aria-hidden className="mt-4 flex gap-1">
+                {overview.split.map((p, i) => (
+                  <span
+                    key={p.label}
+                    style={{ flexGrow: p.years }}
+                    className={`h-1.5 basis-0 ${i === 0 ? "bg-maroon" : "bg-maroon/35"}`}
+                  />
+                ))}
+              </div>
+              <ul className="mt-2.5 flex gap-1">
+                {overview.split.map((p) => (
+                  <li key={p.label} style={{ flexGrow: p.years }} className="min-w-0 basis-0 text-[0.76rem] leading-snug tracking-[0.03em]">
+                    <span className="block">{p.label}</span>
+                    <span className="block text-ink/60 lining-nums">{p.years} years</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="border-l border-line py-1 pl-6 lg:pl-[12%]">
+              <p className="max-w-[12rem] font-serif text-[1.4rem] leading-[1.15] tracking-[-0.01em] text-wine">{overview.registration.value}</p>
+              <p className="mt-2.5 text-[0.8rem] tracking-[0.03em]">{overview.registration.id}</p>
+            </div>
           </div>
         </section>
 
