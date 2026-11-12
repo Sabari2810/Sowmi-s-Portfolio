@@ -264,10 +264,16 @@ export default function Home() {
             </p>
           </div>
 
+          {/* GROUP: Concept Design */}
+          <div className="min-w-0 lg:col-span-2 lg:col-start-2">
+            <div className="mb-5 flex items-center gap-4">
+              <h3 className="label flex-none font-semibold text-wine">Concept Design</h3>
+              <span aria-hidden className="h-px flex-1 bg-line" />
+            </div>
           {/* Concept project, opens its own project page */}
           <Link
             href="/projects/cognitive-playground"
-            className="group relative grid min-w-0 overflow-hidden border border-line transition-colors hover:border-maroon sm:grid-cols-[1.15fr_1fr] lg:col-span-2 lg:col-start-2"
+            className="group relative grid min-w-0 overflow-hidden border border-line transition-colors hover:border-maroon sm:grid-cols-[1.15fr_1fr]"
           >
             {/* The image fills its own box (fixed shape on a phone, full card height beside the text on
                 larger screens). It is absolutely positioned so Safari can't stretch it over the text. */}
@@ -284,14 +290,10 @@ export default function Home() {
             <div className="relative flex flex-col justify-between gap-8 overflow-hidden px-6 py-7 sm:px-8">
               <Neural className="pointer-events-none absolute -right-10 bottom-0 h-3/4 w-full text-maroon/10 transition-colors group-hover:text-maroon/25" />
               <div className="relative">
-                <p className="label flex flex-wrap gap-x-4 gap-y-1 font-normal">
-                  <span>Concept project</span>
-                  <span aria-hidden>/</span>
-                  <span>Workplace design</span>
-                </p>
-                <h3 className="mt-4 font-serif text-[clamp(1.9rem,3vw,2.6rem)] leading-none tracking-[-0.01em] text-wine">
+                <p className="label font-normal">Workplace design</p>
+                <h4 className="mt-4 font-serif text-[clamp(1.9rem,3vw,2.6rem)] leading-none tracking-[-0.01em] text-wine">
                   Cognitive <em>Playground</em>
-                </h3>
+                </h4>
                 <p className="mt-3 max-w-md text-[0.85rem] leading-relaxed tracking-[0.03em]">
                   A Neuroscience-Inspired, Biomimetic Workplace. Circulation planned like a nervous
                   system, with each zone keeping its own identity.
@@ -303,11 +305,19 @@ export default function Home() {
               </span>
             </div>
           </Link>
+          </div>
 
-          {projects.map((p, i) => (
-            <article key={p.title} className={`min-w-0 lg:pt-3 ${i === 0 ? "lg:col-start-2" : ""}`}>
+          {/* GROUP: Managed Office Spaces */}
+          <div className="min-w-0 lg:col-span-2 lg:col-start-2">
+            <div className="mb-5 flex items-center gap-4">
+              <h3 className="label flex-none font-semibold text-wine">Managed Office Spaces</h3>
+              <span aria-hidden className="h-px flex-1 bg-line" />
+            </div>
+            <div className="grid gap-10 lg:grid-cols-2 lg:gap-x-6">
+          {projects.map((p) => (
+            <article key={p.title} className="min-w-0">
               <Carousel slides={p.slides} label={`${p.title} photos`} />
-              <h3 className="pt-4 font-serif text-[1.6rem] tracking-[-0.01em] text-wine">{p.title}</h3>
+              <h4 className="pt-4 font-serif text-[1.6rem] tracking-[-0.01em] text-wine">{p.title}</h4>
               <p className="label mt-2.5 flex flex-wrap gap-x-4 gap-y-1 font-normal">
                 <span>{p.type}</span>
                 <span aria-hidden>/</span>
@@ -317,6 +327,8 @@ export default function Home() {
               <p className="mt-2 max-w-[30rem] text-[0.8rem] leading-relaxed tracking-[0.03em]">{p.text}</p>
             </article>
           ))}
+            </div>
+          </div>
         </section>
 
         {/* EXPERIENCE */}
