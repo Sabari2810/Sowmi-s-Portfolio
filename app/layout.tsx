@@ -10,10 +10,22 @@ const serif = Cormorant_Garamond({
   variable: "--font-serif-display",
 });
 
+const title = "Sowmya P | Space Planning / Interior & Workplace Designer";
+const description =
+  "Sowmya P is a Chennai-based COA registered architect and interior & workplace designer, taking projects from client brief and space planning through detailed design and execution.";
+
 export const metadata: Metadata = {
-  title: "Sowmya P | Architect / Interior & Workplace Designer",
-  description:
-    "Sowmya P is a Chennai-based architect and interior & workplace designer, taking projects from client brief and space planning through detailed design and execution.",
+  metadataBase: new URL("https://by-sowmya.vercel.app"),
+  title,
+  description,
+  openGraph: {
+    type: "website",
+    title,
+    description,
+    siteName: "Sowmya P",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Lounge at WorkEZ Park Centre, a workplace interior by Sowmya P" }],
+  },
+  twitter: { card: "summary_large_image", title, description, images: ["/og.jpg"] },
 };
 
 export const viewport: Viewport = {

@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Link from "next/link";
+import SiteLogo from "@/components/SiteLogo";
 import Render, { type RenderImage } from "@/components/Render";
 
 export const metadata: Metadata = {
@@ -99,9 +100,7 @@ export default function ClientProjects() {
     <div className="mx-auto max-w-[1440px]">
       {/* HEADER */}
       <header className="gutter flex items-center justify-between gap-6 pt-8 lg:pt-12">
-        <Link href="/" aria-label="Sowmya, home" className="font-serif text-[2rem] font-medium leading-none tracking-[-0.01em] text-wine">
-          Sowmya.
-        </Link>
+        <SiteLogo />
         <Link href="/#projects" className="label group inline-flex items-center gap-3 text-wine">
           <Arrow className="rotate-180 transition-transform duration-300 group-hover:-translate-x-1.5" />
           All projects
