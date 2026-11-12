@@ -26,7 +26,8 @@ const nav = [
 const overview = [
   { value: "40+", label: "Projects Completed", big: true },
   { value: "5+", label: "Years of Practice", big: true },
-  { value: "Workplace, Residential & Civic", label: "Project Typologies" },
+  { value: "3 years", label: "Workplace", big: true },
+  { value: "2 years", label: "Residential & Civic", big: true },
   { value: "COA Registered Architect", label: "CA/2023/155850" },
 ];
 
@@ -222,7 +223,7 @@ export default function Home() {
 
         {/* OVERVIEW */}
         <section id="overview" aria-labelledby="overview-title" className="gutter mt-10 scroll-mt-6 bg-sand py-9 lg:mt-7">
-          <div className="grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-[13.5%_1fr_0.85fr_1.1fr_1fr] lg:items-center lg:gap-0">
+          <div className="grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-[11%_0.85fr_0.8fr_0.95fr_1.1fr_1.1fr] lg:items-center lg:gap-0">
             <h2 id="overview-title" className="label font-semibold text-wine sm:col-span-2 lg:col-span-1">
               Overview
             </h2>
